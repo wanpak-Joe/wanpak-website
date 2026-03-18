@@ -4,15 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>wanpak | 道具を、その人のために、生み出す。</title>
-  <meta name="description" content="wanpak — マスカスタマイゼーションで、その人だけの道具を生み出す。競輪・トラック競技向けカスタムプロダクトを2026年6月公開予定。">
+  <meta name="description" content="wanpakは、マスカスタマイゼーションで「その人のための道具」を生み出す会社です。職人技×デジタル技術で、必要な人に、必要なものを、必要なだけ。2026年6月設立予定。">
   <meta property="og:title" content="wanpak | 道具を、その人のために、生み出す。">
-  <meta property="og:description" content="「ちょうどいい」は、もういらない。wanpakは、その人のための道具を生み出すマスカスタマイゼーション企業です。">
+  <meta property="og:description" content="「ちょうどいい」は、もういらない。wanpakは、マスカスタマイゼーションで個人に最適化された道具を届ける会社です。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://wanpak.jp">
   <link rel="icon" type="image/png" href="logo-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Montserrat:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -22,15 +22,16 @@
     <div class="nav-container">
       <a href="#hero" class="logo">
         <img src="logo-text.png" alt="wanpak" class="logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'">
-        <span class="logo-text-fallback">wanpak</span>
+        <span class="logo-fallback">wanpak<span class="logo-dot"></span></span>
       </a>
       <ul class="nav-links" id="navLinks">
-        <li><a href="#philosophy">思想</a></li>
-        <li><a href="#mission">ミッション</a></li>
-        <li><a href="#teaser">プロダクト</a></li>
+        <li><a href="#brand">ブランド</a></li>
+        <li><a href="#vision">ビジョン</a></li>
+        <li><a href="#business">事業</a></li>
+        <li><a href="#company">会社概要</a></li>
         <li><a href="#contact" class="nav-cta">お問い合わせ</a></li>
       </ul>
-      <button class="hamburger" id="hamburger" aria-label="メニュー">
+      <button class="hamburger" id="hamburger" aria-label="メニューを開く">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -38,92 +39,284 @@
 
   <!-- ===== HERO ===== -->
   <section id="hero">
-    <div class="hero-bg-grid"></div>
-    <div class="hero-accent-circle"></div>
+    <div class="hero-grid-bg"></div>
+    <div class="hero-glow"></div>
     <div class="hero-content">
-      <div class="hero-tag">MASS CUSTOMIZATION COMPANY</div>
+      <p class="hero-eyebrow">MASS CUSTOMIZATION COMPANY</p>
       <h1 class="hero-title">
         「ちょうどいい」は、<br>もういらない。
       </h1>
-      <p class="hero-subtitle">
-        wanpakは、その人のための道具を生み出す会社です。<br>
-        規格に合わせるのではなく、道具をその人に合わせる。
+      <p class="hero-sub">
+        モノづくりを、わんぱくに。<br>
+        職人技×デジタル技術で、その人のための道具を生み出す。
       </p>
-      <div class="hero-cta">
-        <a href="#philosophy" class="btn-primary">wanpakについて</a>
-        <a href="#contact" class="btn-secondary">お問い合わせ</a>
+      <div class="hero-actions">
+        <a href="#brand" class="btn-red">wanpakについて</a>
+        <a href="#contact" class="btn-ghost">お問い合わせ</a>
       </div>
     </div>
-    <div class="hero-scroll">
+    <div class="scroll-hint">
       <span>SCROLL</span>
       <div class="scroll-line"></div>
     </div>
   </section>
 
-  <!-- ===== MARQUEE BANNER ===== -->
-  <div class="marquee-banner">
-    <div class="marquee-track">
+  <!-- ===== MARQUEE ===== -->
+  <div class="marquee-bar">
+    <div class="marquee-inner">
       <span>道具を、その人のために、生み出す。</span>
       <span>MASS CUSTOMIZATION</span>
-      <span>道具を、その人のために、生み出す。</span>
+      <span>必要な人に、必要なものを、必要なだけ。</span>
       <span>MASS CUSTOMIZATION</span>
       <span>道具を、その人のために、生み出す。</span>
       <span>MASS CUSTOMIZATION</span>
     </div>
   </div>
 
-  <!-- ===== PHILOSOPHY ===== -->
-  <section id="philosophy">
+  <!-- ===== BRAND STATEMENT ===== -->
+  <section id="brand" class="brand-statement">
     <div class="container">
-      <div class="section-label">PHILOSOPHY</div>
-      <h2 class="section-title">なぜ、wanpakは存在するのか</h2>
-      <p class="section-desc">
-        世の中には、「規格」という名の妥協が溢れている。<br>
-        標準サイズ、平均値、マジョリティに向けて設計された道具たち。<br>
-        しかし、トップを目指すアスリートに「ちょうどいい」は存在しない。
-      </p>
-      <div class="philosophy-grid">
-        <div class="phil-card reveal">
-          <div class="phil-num">01</div>
-          <h3>規格外の身体に、<br>規格外の道具を。</h3>
-          <p>人の身体はひとつひとつ異なる。それなのに道具だけが「標準」に縛られている。wanpakはその矛盾に向き合い、一人ひとりに最適化された道具を届ける。</p>
-        </div>
-        <div class="phil-card reveal">
-          <div class="phil-num">02</div>
-          <h3>テクノロジーで、<br>職人の技を拡張する。</h3>
-          <p>マスカスタマイゼーションとは、量産の効率性と手仕事の精密さを両立させること。最新技術を用いて、すべての人に職人レベルの道具を届ける。</p>
-        </div>
-        <div class="phil-card reveal">
-          <div class="phil-num">03</div>
-          <h3>競技の限界を、<br>道具から突き破る。</h3>
-          <p>アスリートの可能性を制限するのは、自分自身だけであるべきだ。道具が足を引っ張るのであれば、それはまだ道具の問題だ。wanpakはその問題を解く。</p>
+      <div class="bs-wrap">
+        <div class="bs-label">BRAND STATEMENT</div>
+        <blockquote class="bs-quote">
+          モノづくりを、<br>わんぱくに。
+        </blockquote>
+        <div class="bs-body">
+          <p>
+            世界は長い間、「同じものを大量に作る」ことで発展してきた。<br>
+            しかし今、その仕組みは限界を迎えている。
+          </p>
+          <p>
+            人の身体は一人ひとり違う。空間も、目的も、使い方も違う。<br>
+            それなのに、使う道具は同じままでいいのだろうか。
+          </p>
+          <p>
+            本来モノづくりとは、誰かのために作られるものだったはずだ。
+          </p>
+          <p>
+            wanpakは、職人の技術とデジタルファブリケーションを融合し、<br>
+            人と環境に最適化されたモノづくりを実現する。<br>
+            大量生産でもない。完全な一点物でもない。<br>
+            <strong>必要な人に、必要なものを、必要なだけ。</strong>
+          </p>
+          <p class="bs-closing">
+            私たちは、モノづくりをもう一度<br>
+            人のための行為へと取り戻す。
+          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== MISSION ===== -->
-  <section id="mission">
+  <!-- ===== 社名の由来 ===== -->
+  <section id="name-origin" class="name-section">
     <div class="container">
-      <div class="section-label">MISSION &amp; VISION</div>
-      <div class="mission-wrap">
-        <div class="mission-block reveal">
-          <div class="mission-tag">MISSION</div>
-          <p class="mission-text">道具を、その人のために、生み出す。</p>
-          <p class="mission-sub">
-            すべての人が、自分の身体に完全にフィットした道具を持てる世界をつくる。
-            一人ひとりの計測データから設計・製造まで、wanpakが一貫して担う。
+      <div class="name-wrap">
+        <div class="name-left">
+          <div class="section-label">NAME ORIGIN</div>
+          <h2 class="section-title">社名の由来</h2>
+        </div>
+        <div class="name-right reveal">
+          <div class="name-word">
+            <span class="name-char">wan</span><span class="name-char-red">pak</span>
+          </div>
+          <div class="name-meanings">
+            <div class="name-meaning">
+              <div class="name-meaning-tag">01 — One Pack</div>
+              <p>企画、設計、製造、サービスまで。モノづくりのプロセスを分断せず、一つのパッケージとして実行するという思想。</p>
+            </div>
+            <div class="name-meaning">
+              <div class="name-meaning-tag">02 — わんぱく</div>
+              <p>子どもの頃の遊びのように、好奇心のままに試し、作り、失敗し、また挑戦する。そんな自由な発想とエネルギーを仕事にも持ち込みたいという想い。</p>
+            </div>
+          </div>
+          <p class="name-closing">
+            技術の境界を越え、領域を越え、仲間を巻き込みながら新しい価値を生み出す。<br>
+            wanpakは「One Pack」と「わんぱく」を掛け合わせた、私たちのモノづくりの姿勢そのものです。
+          </p>
+          <div class="name-since">SINCE 2020</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 代表挨拶 ===== -->
+  <section id="greeting" class="greeting-section">
+    <div class="container">
+      <div class="section-label">FOUNDER STORY</div>
+      <h2 class="section-title">創業ストーリー</h2>
+      <div class="greeting-wrap">
+        <div class="greeting-portrait reveal">
+          <div class="portrait-box">
+            <div class="portrait-placeholder">
+              <span>Jo Arai</span>
+            </div>
+          </div>
+          <div class="portrait-caption">
+            <strong>新井 浄</strong><br>
+            <span>代表取締役CEO / Jo Arai</span>
+          </div>
+        </div>
+        <div class="greeting-text reveal">
+          <p>
+            これまで私は、自動車・EV・モビリティ・3Dプリンタ・医療機器など、
+            多様な分野で製品開発に従事してきました。
+          </p>
+          <p>
+            その中で一貫して感じていたのは、<br>
+            <strong>「本当に必要な人に最適化された製品が届いていない」</strong><br>
+            という課題です。
+          </p>
+          <p>
+            大量生産では満たせない個々のニーズに対して、
+            設計・製造・サービスを一体で提供することで、
+            初めて価値が最大化される。
+          </p>
+          <p>
+            wanpakは、その思想を実現するための会社です。
+          </p>
+          <div class="greeting-sig">
+            <span class="sig-jp">新井 浄</span>
+            <span class="sig-en">Jo Arai — Founder &amp; CEO, wanpak</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== VISION ===== -->
+  <section id="vision" class="vision-section">
+    <div class="container">
+      <div class="section-label section-label--white">VISION</div>
+      <h2 class="section-title section-title--white">私たちのビジョン</h2>
+
+      <div class="mv-blocks">
+        <div class="mv-block reveal">
+          <div class="mv-tag">MISSION</div>
+          <h3 class="mv-headline">「道具を、その人のために、生み出す。」</h3>
+          <p class="mv-body">
+            すべての人は、既製品では満たされない固有のニーズを持っている。
+            我々は、職人の技とデジタル技術を融合させ、あらゆる道具を「使う人」の目的・環境に合わせて最適化する。
+            大量生産が生み出す「ちょうどいい妥協」ではなく、一人ひとりの「絶対的にこれだ」を届けることが、我々の使命である。
           </p>
         </div>
-        <div class="mission-block reveal">
-          <div class="mission-tag">VISION</div>
-          <p class="mission-text">マスカスタマイゼーションで、<br>産業の常識を書き換える。</p>
-          <p class="mission-sub">
-            競輪・トラック競技向けプロダクトを起点に、
-            マスカスタマイゼーションの基盤技術を構築。
-            スポーツを超え、すべての道具に「その人のための一品」を届ける。
+        <div class="mv-block reveal">
+          <div class="mv-tag">VISION</div>
+          <h3 class="mv-headline">「必要なものだけが、必要な人のもとに届く世界。」</h3>
+          <p class="mv-body">
+            作りすぎず、余らせず、捨てない。「使う人」に最適化された製品が、必要なタイミングで、必要なかたちで生まれるエコシステムを実現する。
+            我々は、モノづくりの常識を根底から覆し、モノづくりのあり方そのものを変える。
           </p>
         </div>
+      </div>
+
+      <div class="manifesto-block">
+        <div class="manifesto-text reveal">
+          <p>
+            モノづくりは、本来誰かのために作られるものだった。<br>
+            しかし現代の製造業は、大量生産の仕組みの中で「平均的な製品」を作り続けている。
+          </p>
+          <p>
+            人の身体は違う。空間は違う。目的も違う。<br>
+            それなのに、道具は同じでいいはずがない。
+          </p>
+          <p>
+            wanpakは職人の技術とデジタル技術を融合し<br>
+            個人と環境に最適化されたモノづくりを実現する。<br>
+            作りすぎない。余らせない。捨てない。
+          </p>
+          <p class="manifesto-close">
+            必要な人に、必要なものを、必要なだけ。<br>
+            それが次のモノづくりのスタンダードだ。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CORE VALUES ===== -->
+  <section id="values" class="values-section">
+    <div class="container">
+      <div class="section-label">VALUES</div>
+      <h2 class="section-title">私たちが大切にすること</h2>
+      <div class="values-grid">
+        <div class="value-card reveal">
+          <div class="value-num">01</div>
+          <h3>個と場を、起点にする</h3>
+          <p>アスリートのギアも、部屋に置かれた家具も、その人の身体、配置される場だけでなく、光の入り方、床の硬さ、周りの雰囲気と結びついて価値を増す。我々が目指すのは、単体で完璧な製品ではない。</p>
+        </div>
+        <div class="value-card reveal">
+          <div class="value-num">02</div>
+          <h3>余計なものを、作らない</h3>
+          <p>必要な人のために、必要なものだけを作る。それが結果として、余計なものを生まない。環境への責任は、私たちにとって目的ではなく、正しい作り方をした先にある必然だ。</p>
+        </div>
+        <div class="value-card reveal">
+          <div class="value-num">03</div>
+          <h3>余白を、設計する</h3>
+          <p>完成した瞬間が、終わりではない。身体は変わる。暮らし方も、少しずつ動いていく。余白とは、未来の自分が手を加えるための隙間だ。我々は、そこまで含めて設計する。</p>
+        </div>
+        <div class="value-card reveal">
+          <div class="value-num">04</div>
+          <h3>境界を、越えていく</h3>
+          <p>スポーツの現場で得た気づきが、家具の設計を変えることがある。我々が特定の業界に根を張らないのは、どこにも属さないことで、それぞれの領域では生まれなかった答えを持ち込めると知っているからだ。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 事業内容 ===== -->
+  <section id="business" class="business-section">
+    <div class="container">
+      <div class="section-label">BUSINESS</div>
+      <h2 class="section-title">事業内容 &amp; 事業領域</h2>
+      <p class="section-desc">
+        wanpakは、マスカスタマイゼーション基盤の構築を核として、<br>
+        職人技×デジタル技術を融合したプロダクト・サービスを提供します。
+      </p>
+
+      <div class="biz-domains">
+        <div class="biz-domain reveal">
+          <div class="biz-domain-icon">◎</div>
+          <h3>アスリート支援</h3>
+          <p>あらゆるスポーツのアスリートへ、競技性とコンディションに最適化した道具を適時提供。結果の最大化と競技寿命の延伸を実現します。</p>
+        </div>
+        <div class="biz-domain reveal">
+          <div class="biz-domain-icon">◈</div>
+          <h3>製品の個人価値最大化</h3>
+          <p>スポーツ用品に留まらず、日用品・家具など全ての製品カテゴリにおいて、使う人にとっての「絶対的価値」を具現化します。</p>
+        </div>
+        <div class="biz-domain reveal">
+          <div class="biz-domain-icon">◐</div>
+          <h3>環境価値の最適化</h3>
+          <p>個人住宅・職場・公共施設などの空間と製品の関係を最適化し、環境・景観の価値を最大化するソリューションを提供します。</p>
+        </div>
+      </div>
+
+      <div class="biz-activities reveal">
+        <div class="biz-act-title">BUSINESS ACTIVITIES</div>
+        <div class="biz-act-grid">
+          <div class="biz-act-item">
+            <h4>プロダクト開発・製造</h4>
+            <p>スポーツ用品・日用品・家具・モビリティ等の企画・開発・製造・販売</p>
+          </div>
+          <div class="biz-act-item">
+            <h4>設計・コンサルティング</h4>
+            <p>職人技×デジタルファブリケーションの融合支援・コンサルティング</p>
+          </div>
+          <div class="biz-act-item">
+            <h4>デジタル製造支援</h4>
+            <p>3Dモデリング・スキャン・プリント等の設計・製造支援サービス</p>
+          </div>
+          <div class="biz-act-item">
+            <h4>R&amp;D・アスリート支援</h4>
+            <p>身体機能に関する研究開発、アスリート支援・育成プログラムの企画運営</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="biz-future reveal">
+        <div class="biz-future-label">INITIAL FOCUS → FUTURE EXPANSION</div>
+        <p>初期フェーズではアスリート向けカスタムギアを中心に展開し、<br>そこで培った技術と設計ノウハウを医療補助具・生活製品・家具など多領域へ展開していきます。</p>
       </div>
     </div>
   </section>
@@ -131,63 +324,132 @@
   <!-- ===== FIRST PRODUCT TEASER ===== -->
   <section id="teaser">
     <div class="teaser-inner">
-      <div class="teaser-label">FIRST PRODUCT</div>
+      <div class="teaser-eyebrow">FIRST PRODUCT</div>
       <h2 class="teaser-title">第1プロダクト、準備中。</h2>
       <p class="teaser-desc">
-        競輪・トラック競技向けのプロダクトを開発中です。<br>
-        詳細は2026年6月に公開予定。
+        wanpakが手がける最初のプロダクトを、準備しています。<br>
+        詳細は2026年6月に公開予定。続報をお待ちください。
       </p>
-
-      <div class="countdown-wrap">
-        <div class="countdown-title">PUBLIC IN</div>
+      <div class="cd-wrap">
+        <div class="cd-label-top">PUBLIC IN</div>
         <div class="countdown" id="countdown">
           <div class="cd-block">
             <span class="cd-num" id="cd-days">--</span>
-            <span class="cd-label">DAYS</span>
+            <span class="cd-unit">DAYS</span>
           </div>
-          <div class="cd-sep">:</div>
+          <div class="cd-colon">:</div>
           <div class="cd-block">
             <span class="cd-num" id="cd-hours">--</span>
-            <span class="cd-label">HOURS</span>
+            <span class="cd-unit">HOURS</span>
           </div>
-          <div class="cd-sep">:</div>
+          <div class="cd-colon">:</div>
           <div class="cd-block">
             <span class="cd-num" id="cd-mins">--</span>
-            <span class="cd-label">MINS</span>
+            <span class="cd-unit">MINS</span>
           </div>
-          <div class="cd-sep">:</div>
+          <div class="cd-colon">:</div>
           <div class="cd-block">
             <span class="cd-num" id="cd-secs">--</span>
-            <span class="cd-label">SECS</span>
+            <span class="cd-unit">SECS</span>
           </div>
         </div>
-        <div class="countdown-date">2026.06.01</div>
+        <div class="cd-date">2026.06.01</div>
       </div>
-
       <a href="#contact" class="btn-teaser">続報を受け取る →</a>
     </div>
   </section>
 
+  <!-- ===== 会社概要 ===== -->
+  <section id="company" class="company-section">
+    <div class="container">
+      <div class="section-label">COMPANY PROFILE</div>
+      <h2 class="section-title">会社概要</h2>
+      <div class="company-wrap">
+        <table class="company-table">
+          <tbody>
+            <tr>
+              <th>会社名</th>
+              <td>株式会社wanpak（設立準備中）</td>
+            </tr>
+            <tr>
+              <th>代表取締役</th>
+              <td>新井 浄 / Jo Arai</td>
+            </tr>
+            <tr>
+              <th>設立予定</th>
+              <td>2026年6月</td>
+            </tr>
+            <tr>
+              <th>所在地</th>
+              <td>東京都大田区（詳細は設立後に公開）</td>
+            </tr>
+            <tr>
+              <th>事業内容</th>
+              <td>
+                01 業界横断型マスカスタマイズ製品の企画・開発・製造・販売<br>
+                02 職人技とデジタルファブリケーションの融合支援・コンサルティング<br>
+                03 3Dモデリング・スキャン・プリント等のデジタルものづくり支援<br>
+                04 アスリート支援、身体機能に関するR&amp;Dおよびコンサルティング<br>
+                05 海外製品の輸入販売・グローバルサプライチェーン構築
+              </td>
+            </tr>
+            <tr>
+              <th>パートナー</th>
+              <td>
+                株式会社magarimono（製造・技術パートナー）<br>
+                一般社団法人日本競輪選手会 神奈川支部（連携パートナー）
+              </td>
+            </tr>
+            <tr>
+              <th>連絡先</th>
+              <td><a href="mailto:wdi.jo.arai@gmail.com">wdi.jo.arai@gmail.com</a></td>
+            </tr>
+            <tr>
+              <th>営業時間</th>
+              <td>平日 10:00 – 18:00（事前予約制・オンライン可）</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== CONTACT ===== -->
-  <section id="contact">
+  <section id="contact" class="contact-section">
     <div class="container">
       <div class="section-label">CONTACT</div>
       <h2 class="section-title">お問い合わせ</h2>
       <p class="section-desc">
-        wanpakへのご質問、取材・パートナーシップのご相談など、<br>
-        お気軽にご連絡ください。
+        まずはお気軽にご相談ください。<br>
+        マスカスタマイズの導入・共同開発・取材・パートナーシップなど、柔軟に対応いたします。
       </p>
+
+      <div class="contact-menu reveal">
+        <div class="contact-menu-item">
+          <div class="contact-menu-title">企業向け</div>
+          <p>製品開発へのマスカスタマイズ導入、生産フロー構築に関するご相談</p>
+        </div>
+        <div class="contact-menu-item">
+          <div class="contact-menu-title">アスリート・個人向け</div>
+          <p>カスタムギアの製作依頼、フィッティング相談</p>
+        </div>
+        <div class="contact-menu-item">
+          <div class="contact-menu-title">共同研究・取材</div>
+          <p>身体機能に関する共同研究、講演依頼、メディア掲載に関するお問い合わせ</p>
+        </div>
+      </div>
+
       <form class="contact-form" name="contact" method="POST" netlify netlify-honeypot="bot-field">
         <input type="hidden" name="form-name" value="contact">
-        <p class="hidden"><label>Bot field: <input name="bot-field"></label></p>
+        <p class="visually-hidden"><label>Bot field: <input name="bot-field"></label></p>
         <div class="form-row">
           <div class="form-group">
             <label for="name">お名前 <span class="req">*</span></label>
             <input type="text" id="name" name="name" required placeholder="山田 太郎">
           </div>
           <div class="form-group">
-            <label for="affiliation">所属・組織名</label>
-            <input type="text" id="affiliation" name="affiliation" placeholder="〇〇株式会社・〇〇チーム">
+            <label for="org">所属・組織名</label>
+            <input type="text" id="org" name="organization" placeholder="〇〇株式会社">
           </div>
         </div>
         <div class="form-group">
@@ -198,7 +460,9 @@
           <label for="inquiry">お問い合わせ種別</label>
           <select id="inquiry" name="inquiry">
             <option value="">選択してください</option>
-            <option value="product">プロダクトについて</option>
+            <option value="product">プロダクトについて（続報希望）</option>
+            <option value="biz">企業向けソリューション相談</option>
+            <option value="athlete">アスリート・個人向け相談</option>
             <option value="partnership">パートナーシップ</option>
             <option value="press">取材・メディア</option>
             <option value="investment">投資・資本提携</option>
@@ -209,7 +473,7 @@
           <label for="message">メッセージ <span class="req">*</span></label>
           <textarea id="message" name="message" required placeholder="ご質問・ご要望をご記入ください" rows="6"></textarea>
         </div>
-        <button type="submit" class="btn-primary btn-submit">送信する</button>
+        <button type="submit" class="btn-submit">送信する</button>
       </form>
     </div>
   </section>
@@ -217,23 +481,25 @@
   <!-- ===== FOOTER ===== -->
   <footer>
     <div class="container">
-      <div class="footer-inner">
+      <div class="footer-top">
         <div class="footer-brand">
           <img src="logo-text.png" alt="wanpak" class="logo-img footer-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'">
-          <span class="logo-text-fallback">wanpak</span>
+          <span class="logo-fallback footer-logo-fallback">wanpak<span class="logo-dot"></span></span>
           <p class="footer-tagline">道具を、その人のために、生み出す。</p>
-          <p class="footer-address">東京都大田区</p>
+          <p class="footer-address">東京都大田区（設立準備中）</p>
           <a href="mailto:wdi.jo.arai@gmail.com" class="footer-mail">wdi.jo.arai@gmail.com</a>
         </div>
         <nav class="footer-nav">
-          <a href="#philosophy">思想</a>
-          <a href="#mission">ミッション</a>
-          <a href="#teaser">プロダクト</a>
+          <a href="#brand">ブランド</a>
+          <a href="#vision">ビジョン</a>
+          <a href="#business">事業内容</a>
+          <a href="#company">会社概要</a>
           <a href="#contact">お問い合わせ</a>
         </nav>
       </div>
       <div class="footer-bottom">
         <p>© 2026 wanpak. All Rights Reserved.</p>
+        <p>設立準備中 — 2026年6月設立予定</p>
       </div>
     </div>
   </footer>
