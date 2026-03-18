@@ -270,12 +270,10 @@ body {
 .greeting-section { padding: 9rem 0; background: var(--white); border-top: 1px solid var(--border); }
 .greeting-wrap { display: grid; grid-template-columns: 240px 1fr; gap: 5rem; align-items: start; margin-top: 3rem; }
 .portrait-box { margin-bottom: 1.2rem; }
-.portrait-placeholder {
-  width: 200px; height: 250px; background: #f0f0ee;
-  display: flex; align-items: center; justify-content: center;
-  border: 1px solid var(--border);
+.portrait-img {
+  width: 200px; height: 250px; object-fit: cover; object-position: center top;
+  display: block;
 }
-.portrait-placeholder span { font-family: 'Montserrat', sans-serif; font-size: 0.75rem; color: #999; letter-spacing: 0.1em; }
 .portrait-caption { font-size: 0.9rem; color: var(--navy); line-height: 1.9; }
 .portrait-caption strong { font-size: 1.05rem; font-weight: 700; display: block; }
 .portrait-caption span { font-size: 0.8rem; color: var(--muted); font-family: 'Montserrat', sans-serif; }
