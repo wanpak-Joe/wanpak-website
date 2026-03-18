@@ -172,8 +172,14 @@ body {
   font-size: clamp(3rem, 8.5vw, 6.5rem); font-weight: 900; color: var(--white);
   line-height: 1.12; margin-bottom: 1.5rem; letter-spacing: -0.025em;
 }
+.hero-os {
+  font-size: clamp(1.4rem, 3.5vw, 2.4rem); font-weight: 900;
+  color: var(--white); line-height: 1.25; margin-bottom: 1.5rem;
+  letter-spacing: -0.015em; opacity: 0.9;
+  border-left: 3px solid var(--red); padding-left: 1.2rem;
+}
 .hero-sub {
-  font-size: clamp(0.9rem, 1.8vw, 1.05rem); color: rgba(255,255,255,0.6);
+  font-size: clamp(0.9rem, 1.8vw, 1.05rem); color: rgba(255,255,255,0.55);
   line-height: 2.1; margin-bottom: 3rem; max-width: 500px; font-weight: 300;
 }
 .hero-actions { display: flex; gap: 1.2rem; flex-wrap: wrap; }
@@ -443,22 +449,36 @@ footer { background: var(--dark); padding: 5rem 0 2.5rem; }
 .footer-bottom p { font-size: 0.72rem; color: rgba(255,255,255,0.22); }
 
 /* ============================================================
-   VISION SECTION
+   VISION SECTION — light bg (dark only for Hero / Teaser / Footer)
    ============================================================ */
-.vision-section { padding: 9rem 0; background: var(--navy); }
+.vision-section { padding: 9rem 0; background: var(--offwhite); }
 .mv-blocks { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-top: 3.5rem; margin-bottom: 4rem; }
 .mv-block {
-  padding: 3rem 2.5rem; border: 1px solid rgba(255,255,255,0.08);
-  border-top: 3px solid var(--red); background: rgba(255,255,255,0.03);
-  transition: background 0.3s;
+  padding: 3rem 2.5rem; border: 1px solid var(--border);
+  border-top: 3px solid var(--navy); background: var(--white);
+  transition: box-shadow 0.3s, transform 0.3s;
 }
-.mv-block:hover { background: rgba(255,255,255,0.06); }
+.mv-block:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(38,34,98,0.08); }
 .mv-tag { font-family: 'Montserrat', sans-serif; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.45em; color: var(--red); margin-bottom: 1.2rem; }
-.mv-headline { font-size: clamp(1rem, 2vw, 1.2rem); font-weight: 900; color: var(--white); line-height: 1.5; margin-bottom: 1.2rem; }
-.mv-body { font-size: 0.875rem; color: rgba(255,255,255,0.5); line-height: 2.1; font-weight: 300; }
-.manifesto-block { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 4rem; }
-.manifesto-text p { font-size: clamp(1rem, 2.5vw, 1.25rem); color: rgba(255,255,255,0.75); line-height: 2.2; margin-bottom: 1.5rem; font-weight: 300; }
-.manifesto-close { font-weight: 700 !important; color: var(--white) !important; }
+.mv-headline { font-size: clamp(1rem, 2vw, 1.2rem); font-weight: 900; color: var(--navy); line-height: 1.5; margin-bottom: 1.2rem; }
+.mv-body { font-size: 0.875rem; color: #555; line-height: 2.1; font-weight: 300; }
+.manifesto-block {
+  background: var(--navy); border-radius: 0;
+  padding: 4rem; margin-top: 0;
+  position: relative; overflow: hidden;
+}
+.manifesto-block::before {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+  width: 4px; background: var(--red);
+}
+.manifesto-text p { font-size: clamp(0.95rem, 2vw, 1.1rem); color: rgba(255,255,255,0.7); line-height: 2.3; margin-bottom: 1.5rem; font-weight: 300; }
+.manifesto-close { font-weight: 700 !important; color: var(--white) !important; font-size: 1.05rem !important; }
+
+/* VALUE NUM */
+.value-num {
+  font-family: 'Montserrat', sans-serif; font-size: 2rem; font-weight: 900;
+  color: rgba(38,34,98,0.08); line-height: 1; margin-bottom: 1.2rem;
+}
 
 /* ============================================================
    BUSINESS SECTION — updates
