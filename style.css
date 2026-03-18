@@ -1,7 +1,8 @@
 /* ============================================================
-   wanpak OFFICIAL WEBSITE — style.css v2
+   wanpak OFFICIAL WEBSITE — style.css v3
    Colors: Navy #262262 | Red #ff3131 | White #ffffff
-   Design: White-dominant, clean, premium
+   Rule: Dark bg = Hero / Teaser / Footer ONLY
+   Body text: #111111 (black) — never grey on grey
    ============================================================ */
 
 /* ===== RESET ===== */
@@ -15,11 +16,10 @@ a { color: inherit; text-decoration: none; }
   --navy:   #262262;
   --red:    #ff3131;
   --white:  #ffffff;
-  --offwhite: #f8f8f6;
-  --light:  #f2f2f0;
   --ink:    #111111;
-  --muted:  #777777;
-  --border: #e0e0de;
+  --sub:    #444444;
+  --muted:  #666666;
+  --border: #d8d8d6;
   --dark:   #0f0e1e;
 }
 
@@ -38,7 +38,7 @@ body {
 /* ===== SECTION LABELS ===== */
 .section-label {
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.65rem; font-weight: 700; letter-spacing: 0.45em;
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.45em;
   color: var(--red); margin-bottom: 1.25rem;
   display: flex; align-items: center; gap: 0.75rem;
 }
@@ -48,32 +48,34 @@ body {
 
 /* ===== SECTION TITLES ===== */
 .section-title {
-  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-size: clamp(1.9rem, 4vw, 2.8rem);
   font-weight: 900; color: var(--navy); line-height: 1.2; margin-bottom: 1.5rem;
   letter-spacing: -0.01em;
 }
 .section-title--white { color: var(--white); }
-.section-desc { font-size: 0.95rem; color: var(--muted); line-height: 2.1; margin-bottom: 3.5rem; }
+.section-desc {
+  font-size: 1.05rem; color: var(--sub); line-height: 2.1; margin-bottom: 3.5rem;
+}
 
 /* ===== BUTTONS ===== */
 .btn-red {
   display: inline-block; background: var(--red); color: var(--white);
-  padding: 0.85rem 2.2rem; font-weight: 700; font-size: 0.85rem;
+  padding: 0.9rem 2.4rem; font-weight: 700; font-size: 0.9rem;
   letter-spacing: 0.06em; transition: background 0.25s, transform 0.2s;
   clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
 }
 .btn-red:hover { background: #d42828; transform: translateY(-2px); }
 
 .btn-ghost {
-  display: inline-block; color: rgba(255,255,255,0.8); padding: 0.85rem 2.2rem;
-  font-weight: 500; font-size: 0.85rem; letter-spacing: 0.06em;
-  border: 1px solid rgba(255,255,255,0.3); transition: all 0.25s;
+  display: inline-block; color: rgba(255,255,255,0.85); padding: 0.9rem 2.4rem;
+  font-weight: 500; font-size: 0.9rem; letter-spacing: 0.06em;
+  border: 1px solid rgba(255,255,255,0.35); transition: all 0.25s;
 }
 .btn-ghost:hover { color: var(--white); border-color: var(--white); background: rgba(255,255,255,0.06); }
 
 .btn-submit {
   width: 100%; background: var(--navy); color: var(--white);
-  padding: 1rem; font-family: inherit; font-size: 0.9rem; font-weight: 700;
+  padding: 1.1rem; font-family: inherit; font-size: 0.95rem; font-weight: 700;
   letter-spacing: 0.08em; border: none; cursor: pointer;
   transition: background 0.25s, transform 0.2s;
 }
@@ -81,8 +83,8 @@ body {
 
 .btn-teaser {
   display: inline-block; color: var(--white); padding: 0.9rem 2.5rem;
-  font-size: 0.85rem; font-weight: 700; letter-spacing: 0.08em;
-  border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s;
+  font-size: 0.88rem; font-weight: 700; letter-spacing: 0.08em;
+  border: 1px solid rgba(255,255,255,0.25); transition: all 0.3s;
 }
 .btn-teaser:hover { border-color: var(--red); color: var(--red); }
 
@@ -101,7 +103,7 @@ body {
   padding: 1.5rem 2rem; transition: all 0.35s ease;
 }
 #navbar.scrolled {
-  background: rgba(38, 34, 98, 0.96);
+  background: rgba(38, 34, 98, 0.97);
   backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
   padding: 0.8rem 2rem;
   box-shadow: 0 2px 32px rgba(0,0,0,0.2);
@@ -111,7 +113,7 @@ body {
   display: flex; justify-content: space-between; align-items: center;
 }
 .logo { display: flex; align-items: center; }
-.logo-img { height: 26px; width: auto; filter: brightness(0) invert(1); }
+.logo-img { height: 26px; width: auto; }
 .logo-fallback {
   font-family: 'Montserrat', sans-serif; font-size: 1.4rem; font-weight: 900;
   color: var(--white); letter-spacing: 0.04em; display: none;
@@ -121,10 +123,10 @@ body {
   background: var(--red); border-radius: 50%;
   margin-left: 2px; margin-bottom: 8px; vertical-align: bottom;
 }
-.nav-links { display: flex; list-style: none; align-items: center; gap: 2.2rem; }
+.nav-links { display: flex; list-style: none; align-items: center; gap: 2rem; }
 .nav-links a {
-  color: rgba(255,255,255,0.75); font-size: 0.8rem; font-weight: 500;
-  letter-spacing: 0.05em; transition: color 0.2s;
+  color: rgba(255,255,255,0.8); font-size: 0.8rem; font-weight: 500;
+  letter-spacing: 0.04em; transition: color 0.2s;
 }
 .nav-links a:hover, .nav-links a.active { color: var(--white); }
 .nav-cta {
@@ -142,7 +144,7 @@ body {
 .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 /* ============================================================
-   HERO
+   HERO — dark navy (intentional: brand anchor)
    ============================================================ */
 #hero {
   min-height: 100vh; background: var(--navy);
@@ -152,8 +154,8 @@ body {
 .hero-grid-bg {
   position: absolute; inset: 0;
   background-image:
-    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
   background-size: 64px 64px;
 }
 .hero-glow {
@@ -163,7 +165,7 @@ body {
 }
 .hero-content { max-width: 1080px; margin: 0 auto; width: 100%; position: relative; z-index: 2; }
 .hero-eyebrow {
-  font-family: 'Montserrat', sans-serif; font-size: 0.68rem; font-weight: 700;
+  font-family: 'Montserrat', sans-serif; font-size: 0.7rem; font-weight: 700;
   letter-spacing: 0.45em; color: var(--red); margin-bottom: 2rem;
   display: flex; align-items: center; gap: 0.8rem;
 }
@@ -174,13 +176,13 @@ body {
 }
 .hero-os {
   font-size: clamp(1.4rem, 3.5vw, 2.4rem); font-weight: 900;
-  color: var(--white); line-height: 1.25; margin-bottom: 1.5rem;
-  letter-spacing: -0.015em; opacity: 0.9;
-  border-left: 3px solid var(--red); padding-left: 1.2rem;
+  color: var(--white); line-height: 1.25; margin-bottom: 1.8rem;
+  letter-spacing: -0.015em;
+  border-left: 4px solid var(--red); padding-left: 1.2rem;
 }
 .hero-sub {
-  font-size: clamp(0.9rem, 1.8vw, 1.05rem); color: rgba(255,255,255,0.55);
-  line-height: 2.1; margin-bottom: 3rem; max-width: 500px; font-weight: 300;
+  font-size: clamp(0.95rem, 1.8vw, 1.1rem); color: rgba(255,255,255,0.6);
+  line-height: 2.1; margin-bottom: 3rem; max-width: 520px; font-weight: 300;
 }
 .hero-actions { display: flex; gap: 1.2rem; flex-wrap: wrap; }
 .scroll-hint {
@@ -188,7 +190,7 @@ body {
   display: flex; flex-direction: column; align-items: center; gap: 0.5rem; z-index: 2;
 }
 .scroll-hint span {
-  font-family: 'Montserrat', sans-serif; font-size: 0.58rem;
+  font-family: 'Montserrat', sans-serif; font-size: 0.6rem;
   letter-spacing: 0.4em; color: rgba(255,255,255,0.25);
 }
 .scroll-line {
@@ -202,20 +204,20 @@ body {
    MARQUEE
    ============================================================ */
 .marquee-bar {
-  background: var(--red); padding: 0.8rem 0; overflow: hidden; white-space: nowrap;
+  background: var(--red); padding: 0.85rem 0; overflow: hidden; white-space: nowrap;
 }
 .marquee-inner {
   display: inline-flex; gap: 3.5rem;
-  animation: marquee 24s linear infinite;
+  animation: marquee 28s linear infinite;
 }
 .marquee-inner span {
-  font-size: 0.75rem; font-weight: 700; color: var(--white);
-  letter-spacing: 0.15em; flex-shrink: 0;
+  font-size: 0.78rem; font-weight: 700; color: var(--white);
+  letter-spacing: 0.12em; flex-shrink: 0;
 }
 @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
 /* ============================================================
-   BRAND STATEMENT
+   BRAND STATEMENT — white bg
    ============================================================ */
 .brand-statement {
   padding: 9rem 0; background: var(--white);
@@ -223,7 +225,7 @@ body {
 }
 .bs-wrap { max-width: 760px; }
 .bs-label {
-  font-family: 'Montserrat', sans-serif; font-size: 0.65rem; font-weight: 700;
+  font-family: 'Montserrat', sans-serif; font-size: 0.7rem; font-weight: 700;
   letter-spacing: 0.45em; color: var(--red); margin-bottom: 2.5rem;
   display: flex; align-items: center; gap: 0.75rem;
 }
@@ -233,120 +235,144 @@ body {
   line-height: 1.25; margin-bottom: 3rem; letter-spacing: -0.015em;
   font-style: normal; border-left: 4px solid var(--red); padding-left: 2rem;
 }
-.bs-body {
-  font-size: 1rem; color: #555; line-height: 2.3; font-weight: 300;
-  border-left: 4px solid transparent; padding-left: 2rem;
-}
+.bs-body { padding-left: 2rem; }
+.bs-body p { font-size: 1.05rem; color: var(--ink); line-height: 2.3; font-weight: 400; margin-bottom: 1.5rem; }
+.bs-body strong { color: var(--navy); font-weight: 700; }
+.bs-closing { font-weight: 700 !important; color: var(--navy) !important; }
 
 /* ============================================================
-   社名の由来
+   社名の由来 — white bg
    ============================================================ */
-.name-section { padding: 9rem 0; background: var(--offwhite); }
+.name-section { padding: 9rem 0; background: var(--white); border-top: 1px solid var(--border); }
 .name-wrap { display: grid; grid-template-columns: 280px 1fr; gap: 6rem; align-items: start; }
-.name-word { margin-bottom: 2rem; line-height: 1; }
-.name-char {
-  font-family: 'Montserrat', sans-serif; font-size: clamp(3rem, 7vw, 5rem);
-  font-weight: 900; color: var(--navy); letter-spacing: -0.03em;
+.name-logo-wrap { margin-bottom: 2.5rem; }
+.name-logo-img { height: 56px; width: auto; }
+.name-logo-fallback {
+  display: none; font-family: 'Montserrat', sans-serif; font-size: 3.5rem;
+  font-weight: 900; color: var(--ink); letter-spacing: -0.03em;
 }
-.name-char-red {
-  font-family: 'Montserrat', sans-serif; font-size: clamp(3rem, 7vw, 5rem);
-  font-weight: 900; color: var(--red); letter-spacing: -0.03em;
+.name-meanings { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2.5rem; }
+.name-meaning { padding: 1.5rem 0; border-top: 1px solid var(--border); }
+.name-meaning-tag {
+  font-family: 'Montserrat', sans-serif; font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 0.2em; color: var(--red); margin-bottom: 0.85rem;
 }
-.name-desc { font-size: 0.95rem; color: #555; line-height: 2.3; margin-bottom: 2.5rem; font-weight: 300; }
+.name-meaning p { font-size: 0.95rem; color: var(--ink); line-height: 2; font-weight: 400; }
+.name-closing { font-size: 0.95rem; color: var(--sub); line-height: 2.1; margin-bottom: 1.5rem; }
 .name-since {
-  font-family: 'Montserrat', sans-serif; font-size: 0.65rem; font-weight: 700;
+  font-family: 'Montserrat', sans-serif; font-size: 0.68rem; font-weight: 700;
   letter-spacing: 0.45em; color: rgba(38,34,98,0.25);
 }
 
 /* ============================================================
-   代表挨拶
+   代表挨拶 — white bg
    ============================================================ */
-.greeting-section { padding: 9rem 0; background: var(--white); }
+.greeting-section { padding: 9rem 0; background: var(--white); border-top: 1px solid var(--border); }
 .greeting-wrap { display: grid; grid-template-columns: 240px 1fr; gap: 5rem; align-items: start; margin-top: 3rem; }
-.portrait-box { margin-bottom: 1.5rem; }
+.portrait-box { margin-bottom: 1.2rem; }
 .portrait-placeholder {
-  width: 200px; height: 240px; background: var(--light);
+  width: 200px; height: 250px; background: #f0f0ee;
   display: flex; align-items: center; justify-content: center;
   border: 1px solid var(--border);
 }
-.portrait-placeholder span { font-family: 'Montserrat', sans-serif; font-size: 0.75rem; color: var(--muted); letter-spacing: 0.1em; }
-.portrait-caption { font-size: 0.85rem; color: var(--navy); line-height: 1.8; }
-.portrait-caption strong { font-size: 1rem; font-weight: 700; }
-.portrait-caption span { font-size: 0.78rem; color: var(--muted); font-family: 'Montserrat', sans-serif; }
+.portrait-placeholder span { font-family: 'Montserrat', sans-serif; font-size: 0.75rem; color: #999; letter-spacing: 0.1em; }
+.portrait-caption { font-size: 0.9rem; color: var(--navy); line-height: 1.9; }
+.portrait-caption strong { font-size: 1.05rem; font-weight: 700; display: block; }
+.portrait-caption span { font-size: 0.8rem; color: var(--muted); font-family: 'Montserrat', sans-serif; }
 .greeting-text p {
-  font-size: 0.95rem; color: #444; line-height: 2.4; margin-bottom: 1.75rem; font-weight: 300;
+  font-size: 1.05rem; color: var(--ink); line-height: 2.4; margin-bottom: 1.75rem;
 }
-.greeting-sig { margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid var(--border); }
-.sig-jp { display: block; font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: 0.3rem; }
-.sig-en { font-family: 'Montserrat', sans-serif; font-size: 0.75rem; color: var(--muted); letter-spacing: 0.05em; }
+.greeting-text strong { color: var(--navy); font-weight: 700; }
 
 /* ============================================================
-   MANIFESTO
+   VISION — white bg
+   (dark = Hero / Teaser / Footer ONLY)
    ============================================================ */
-.manifesto-section { padding: 9rem 0; background: var(--navy); }
-.manifesto-list { margin-top: 4rem; }
-.mani-item {
-  display: grid; grid-template-columns: 80px 1fr; gap: 3rem;
-  padding: 2.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.07);
-  transition: all 0.3s;
+.vision-section { padding: 9rem 0; background: var(--white); border-top: 1px solid var(--border); }
+
+.vision-os-title {
+  font-size: clamp(2rem, 5vw, 3.5rem) !important;
+  color: var(--navy); border-left: 5px solid var(--red);
+  padding-left: 1.5rem; margin-bottom: 1.5rem !important;
 }
-.mani-item:first-of-type { border-top: 1px solid rgba(255,255,255,0.07); }
-.mani-item:hover { background: rgba(255,255,255,0.02); margin: 0 -2.5rem; padding-left: 2.5rem; padding-right: 2.5rem; }
-.mani-num {
-  font-family: 'Montserrat', sans-serif; font-size: 0.7rem; font-weight: 700;
+
+.mv-blocks { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 3rem; margin-bottom: 3rem; }
+.mv-block {
+  padding: 2.5rem 2.5rem; border: 1px solid var(--border);
+  border-top: 3px solid var(--navy); background: var(--white);
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+.mv-block:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(38,34,98,0.08); }
+.mv-tag {
+  font-family: 'Montserrat', sans-serif; font-size: 0.65rem; font-weight: 700;
+  letter-spacing: 0.45em; color: var(--red); margin-bottom: 1.2rem;
+}
+.mv-headline { font-size: 1.1rem; font-weight: 900; color: var(--navy); line-height: 1.5; margin-bottom: 1.2rem; }
+.mv-body { font-size: 0.95rem; color: var(--ink); line-height: 2.1; }
+
+.vision-manifesto {
+  border-top: 1px solid var(--border); padding-top: 3.5rem;
+}
+.vision-manifesto p {
+  font-size: 1.1rem; color: var(--ink); line-height: 2.4; margin-bottom: 1.5rem;
+}
+.manifesto-close { font-weight: 700 !important; color: var(--navy) !important; font-size: 1.15rem !important; }
+
+/* ============================================================
+   CORE VALUES — white bg, compact layout like company brochure
+   ============================================================ */
+.values-section { padding: 9rem 0; background: var(--white); border-top: 1px solid var(--border); }
+.values-list { margin-top: 2rem; }
+.value-item {
+  display: grid; grid-template-columns: 80px 1fr;
+  padding: 2.5rem 0; border-bottom: 1px solid var(--border);
+  gap: 2.5rem; align-items: start;
+}
+.value-item:first-of-type { border-top: 1px solid var(--border); }
+.value-num {
+  font-family: 'Montserrat', sans-serif; font-size: 0.8rem; font-weight: 700;
   letter-spacing: 0.2em; color: var(--red); padding-top: 0.3rem;
 }
-.mani-body h3 { font-size: clamp(1rem, 2.5vw, 1.2rem); color: var(--white); font-weight: 700; margin-bottom: 0.75rem; line-height: 1.4; }
-.mani-body p { font-size: 0.88rem; color: rgba(255,255,255,0.45); line-height: 2; font-weight: 300; }
+.value-body h3 { font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: 0.8rem; line-height: 1.4; }
+.value-body p { font-size: 0.98rem; color: var(--ink); line-height: 2.1; }
 
 /* ============================================================
-   CORE VALUES
+   事業内容 — white bg
    ============================================================ */
-.values-section { padding: 9rem 0; background: var(--offwhite); }
-.values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 1rem; }
-.value-card {
-  padding: 3rem 2.5rem; background: var(--white); border: 1px solid var(--border);
-  transition: all 0.3s ease; position: relative; overflow: hidden;
+.business-section { padding: 9rem 0; background: var(--white); border-top: 1px solid var(--border); }
+.biz-domains { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 4rem; }
+.biz-domain {
+  padding: 2.5rem 2.5rem; background: var(--white); border: 1px solid var(--border);
+  border-top: 3px solid var(--navy); transition: transform 0.3s, box-shadow 0.3s;
 }
-.value-card::after {
-  content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%;
-  background: var(--red); transform: scaleY(0); transform-origin: top; transition: transform 0.35s ease;
+.biz-domain:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(38,34,98,0.08); }
+.biz-domain-num {
+  font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 700;
+  letter-spacing: 0.2em; color: var(--red); margin-bottom: 1.2rem;
 }
-.value-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(38,34,98,0.08); border-color: var(--navy); }
-.value-card:hover::after { transform: scaleY(1); }
-.value-icon { font-size: 2rem; color: var(--red); margin-bottom: 1.5rem; opacity: 0.7; }
-.value-card h3 { font-family: 'Montserrat', sans-serif; font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 0.3rem; letter-spacing: 0.03em; }
-.value-jp { font-size: 0.78rem; color: var(--muted); margin-bottom: 1rem; }
-.value-card p { font-size: 0.85rem; color: #666; line-height: 1.9; font-weight: 300; }
+.biz-domain h3 { font-size: 1.05rem; font-weight: 700; color: var(--navy); margin-bottom: 1rem; line-height: 1.5; }
+.biz-domain p { font-size: 0.95rem; color: var(--ink); line-height: 2; }
 
-/* ============================================================
-   事業内容
-   ============================================================ */
-.business-section { padding: 9rem 0; background: var(--white); }
-.business-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 3rem; }
-.biz-card {
-  padding: 3rem 2.5rem; background: var(--offwhite); border-top: 3px solid var(--navy);
-  transition: transform 0.3s, box-shadow 0.3s;
+.biz-activities { border: 1px solid var(--border); padding: 3rem; margin-bottom: 2rem; }
+.biz-act-title {
+  font-family: 'Montserrat', sans-serif; font-size: 0.68rem; font-weight: 700;
+  letter-spacing: 0.45em; color: var(--red); margin-bottom: 2rem;
 }
-.biz-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(38,34,98,0.08); }
-.biz-num {
-  font-family: 'Montserrat', sans-serif; font-size: 2.5rem; font-weight: 900;
-  color: rgba(38,34,98,0.08); line-height: 1; margin-bottom: 1.2rem;
-}
-.biz-card h3 { font-size: 1rem; font-weight: 700; color: var(--navy); line-height: 1.6; margin-bottom: 1rem; }
-.biz-card p { font-size: 0.875rem; color: #666; line-height: 2; font-weight: 300; }
-.biz-note {
+.biz-act-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; }
+.biz-act-item h4 { font-size: 0.95rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; }
+.biz-act-item p { font-size: 0.9rem; color: var(--ink); line-height: 2; }
+
+.biz-future {
   padding: 2rem 2.5rem; border: 1px solid var(--border); border-left: 4px solid var(--red);
-  display: flex; gap: 2rem; align-items: baseline; flex-wrap: wrap;
 }
-.biz-note-label {
+.biz-future-label {
   font-family: 'Montserrat', sans-serif; font-size: 0.65rem; font-weight: 700;
-  letter-spacing: 0.3em; color: var(--red); flex-shrink: 0;
+  letter-spacing: 0.3em; color: var(--red); margin-bottom: 0.75rem;
 }
-.biz-note p { font-size: 0.875rem; color: #555; }
+.biz-future p { font-size: 0.95rem; color: var(--ink); line-height: 2; }
 
 /* ============================================================
-   FIRST PRODUCT TEASER
+   FIRST PRODUCT TEASER — dark (intentional: product drama)
    ============================================================ */
 #teaser {
   background: var(--dark); padding: 9rem 0; text-align: center;
@@ -359,18 +385,18 @@ body {
 }
 .teaser-inner { max-width: 800px; margin: 0 auto; padding: 0 2.5rem; position: relative; z-index: 2; }
 .teaser-eyebrow {
-  font-family: 'Montserrat', sans-serif; font-size: 0.65rem; font-weight: 700;
+  font-family: 'Montserrat', sans-serif; font-size: 0.68rem; font-weight: 700;
   letter-spacing: 0.5em; color: var(--red); margin-bottom: 2rem;
   display: flex; align-items: center; justify-content: center; gap: 1rem;
 }
 .teaser-eyebrow::before, .teaser-eyebrow::after { content: ''; width: 28px; height: 1px; background: var(--red); }
 .teaser-title { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 900; color: var(--white); margin-bottom: 1.5rem; }
-.teaser-desc { font-size: 0.95rem; color: rgba(255,255,255,0.45); line-height: 2.2; margin-bottom: 5rem; font-weight: 300; }
+.teaser-desc { font-size: 1rem; color: rgba(255,255,255,0.5); line-height: 2.2; margin-bottom: 5rem; }
 
 /* Countdown */
 .cd-wrap { margin-bottom: 4rem; }
 .cd-label-top {
-  font-family: 'Montserrat', sans-serif; font-size: 0.6rem; font-weight: 700;
+  font-family: 'Montserrat', sans-serif; font-size: 0.62rem; font-weight: 700;
   letter-spacing: 0.55em; color: rgba(255,255,255,0.25); margin-bottom: 2.5rem;
 }
 .countdown { display: flex; justify-content: center; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
@@ -380,7 +406,7 @@ body {
   font-size: clamp(3rem, 8vw, 5.5rem); font-weight: 900; color: var(--white);
   line-height: 1; letter-spacing: -0.03em;
 }
-.cd-unit { font-family: 'Montserrat', sans-serif; font-size: 0.58rem; font-weight: 700; letter-spacing: 0.3em; color: rgba(255,255,255,0.25); margin-top: 0.6rem; }
+.cd-unit { font-family: 'Montserrat', sans-serif; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.3em; color: rgba(255,255,255,0.25); margin-top: 0.6rem; }
 .cd-colon {
   font-family: 'Montserrat', sans-serif; font-size: clamp(2rem, 5vw, 4rem);
   font-weight: 300; color: var(--red); line-height: 1; margin-bottom: 1.5rem;
@@ -388,36 +414,39 @@ body {
 }
 @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.15; } }
 .cd-date {
-  font-family: 'Montserrat', sans-serif; font-size: 0.7rem; font-weight: 700;
+  font-family: 'Montserrat', sans-serif; font-size: 0.72rem; font-weight: 700;
   letter-spacing: 0.4em; color: rgba(255,255,255,0.2); margin-top: 2.5rem;
 }
 
 /* ============================================================
-   会社概要
+   会社概要 — white bg
    ============================================================ */
-.company-section { padding: 9rem 0; background: var(--offwhite); }
+.company-section { padding: 9rem 0; background: var(--white); border-top: 1px solid var(--border); }
 .company-wrap { margin-top: 1rem; }
 .company-table { width: 100%; border-collapse: collapse; }
-.company-table th, .company-table td { padding: 1.4rem 1.5rem; border-bottom: 1px solid var(--border); font-size: 0.9rem; text-align: left; vertical-align: top; }
-.company-table th { width: 180px; font-weight: 700; color: var(--navy); font-size: 0.82rem; letter-spacing: 0.03em; white-space: nowrap; }
-.company-table td { color: #444; line-height: 1.9; font-weight: 300; }
-.company-table td a { color: var(--navy); border-bottom: 1px solid rgba(38,34,98,0.2); transition: color 0.2s; }
+.company-table th, .company-table td {
+  padding: 1.5rem 1.5rem; border-bottom: 1px solid var(--border);
+  font-size: 0.95rem; text-align: left; vertical-align: top;
+}
+.company-table th { width: 180px; font-weight: 700; color: var(--navy); font-size: 0.88rem; letter-spacing: 0.02em; white-space: nowrap; }
+.company-table td { color: var(--ink); line-height: 2; }
+.company-table td a { color: var(--navy); border-bottom: 1px solid rgba(38,34,98,0.25); transition: color 0.2s; }
 .company-table td a:hover { color: var(--red); }
 .company-table tr:first-child th, .company-table tr:first-child td { border-top: 1px solid var(--border); }
 
 /* ============================================================
-   CONTACT
+   CONTACT — white bg
    ============================================================ */
-.contact-section { padding: 9rem 0; background: var(--white); }
+.contact-section { padding: 9rem 0; background: var(--white); border-top: 1px solid var(--border); }
 .contact-form { max-width: 680px; margin: 0 auto; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
 .form-group { margin-bottom: 1.5rem; }
-.form-group label { display: block; font-size: 0.8rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; letter-spacing: 0.04em; }
+.form-group label { display: block; font-size: 0.85rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; letter-spacing: 0.03em; }
 .req { color: var(--red); }
 .form-group input, .form-group select, .form-group textarea {
-  width: 100%; padding: 0.85rem 1rem; border: 1px solid #ccc;
+  width: 100%; padding: 0.9rem 1rem; border: 1px solid #ccc;
   background: var(--white); font-family: 'Noto Sans JP', sans-serif;
-  font-size: 0.88rem; color: var(--navy); outline: none; border-radius: 0;
+  font-size: 0.95rem; color: var(--ink); outline: none; border-radius: 0;
   transition: border-color 0.25s; -webkit-appearance: none; appearance: none;
 }
 .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--navy); }
@@ -427,8 +456,13 @@ body {
   background-repeat: no-repeat; background-position: right 1rem center; padding-right: 2.5rem; cursor: pointer;
 }
 
+.contact-menu { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 3.5rem; }
+.contact-menu-item { padding: 1.5rem 0; border-top: 2px solid var(--navy); }
+.contact-menu-title { font-size: 0.88rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; }
+.contact-menu-item p { font-size: 0.88rem; color: var(--sub); line-height: 1.9; }
+
 /* ============================================================
-   FOOTER
+   FOOTER — dark (intentional: close)
    ============================================================ */
 footer { background: var(--dark); padding: 5rem 0 2.5rem; }
 .footer-top {
@@ -438,95 +472,15 @@ footer { background: var(--dark); padding: 5rem 0 2.5rem; }
 }
 .footer-logo { height: 22px; width: auto; margin-bottom: 1rem; }
 .footer-logo-fallback { display: block; margin-bottom: 1rem; font-size: 1.25rem; }
-.footer-tagline { font-size: 0.82rem; color: rgba(255,255,255,0.35); margin-bottom: 1.2rem; }
-.footer-address { font-size: 0.75rem; color: rgba(255,255,255,0.25); margin-bottom: 0.4rem; }
-.footer-mail { font-size: 0.75rem; color: rgba(255,255,255,0.3); transition: color 0.2s; }
+.footer-tagline { font-size: 0.85rem; color: rgba(255,255,255,0.4); margin-bottom: 1.2rem; }
+.footer-address { font-size: 0.78rem; color: rgba(255,255,255,0.28); margin-bottom: 0.4rem; }
+.footer-mail { font-size: 0.78rem; color: rgba(255,255,255,0.35); transition: color 0.2s; }
 .footer-mail:hover { color: var(--white); }
 .footer-nav { display: flex; flex-direction: column; gap: 1rem; }
-.footer-nav a { font-size: 0.8rem; color: rgba(255,255,255,0.4); transition: color 0.2s; }
+.footer-nav a { font-size: 0.82rem; color: rgba(255,255,255,0.45); transition: color 0.2s; }
 .footer-nav a:hover { color: var(--white); }
 .footer-bottom { padding-top: 2rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; }
-.footer-bottom p { font-size: 0.72rem; color: rgba(255,255,255,0.22); }
-
-/* ============================================================
-   VISION SECTION — light bg (dark only for Hero / Teaser / Footer)
-   ============================================================ */
-.vision-section { padding: 9rem 0; background: var(--offwhite); }
-.mv-blocks { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-top: 3.5rem; margin-bottom: 4rem; }
-.mv-block {
-  padding: 3rem 2.5rem; border: 1px solid var(--border);
-  border-top: 3px solid var(--navy); background: var(--white);
-  transition: box-shadow 0.3s, transform 0.3s;
-}
-.mv-block:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(38,34,98,0.08); }
-.mv-tag { font-family: 'Montserrat', sans-serif; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.45em; color: var(--red); margin-bottom: 1.2rem; }
-.mv-headline { font-size: clamp(1rem, 2vw, 1.2rem); font-weight: 900; color: var(--navy); line-height: 1.5; margin-bottom: 1.2rem; }
-.mv-body { font-size: 0.875rem; color: #555; line-height: 2.1; font-weight: 300; }
-.manifesto-block {
-  background: var(--navy); border-radius: 0;
-  padding: 4rem; margin-top: 0;
-  position: relative; overflow: hidden;
-}
-.manifesto-block::before {
-  content: ''; position: absolute; left: 0; top: 0; bottom: 0;
-  width: 4px; background: var(--red);
-}
-.manifesto-text p { font-size: clamp(0.95rem, 2vw, 1.1rem); color: rgba(255,255,255,0.7); line-height: 2.3; margin-bottom: 1.5rem; font-weight: 300; }
-.manifesto-close { font-weight: 700 !important; color: var(--white) !important; font-size: 1.05rem !important; }
-
-/* VALUE NUM */
-.value-num {
-  font-family: 'Montserrat', sans-serif; font-size: 2rem; font-weight: 900;
-  color: rgba(38,34,98,0.08); line-height: 1; margin-bottom: 1.2rem;
-}
-
-/* ============================================================
-   BUSINESS SECTION — updates
-   ============================================================ */
-.biz-domains { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; margin-bottom: 4rem; }
-.biz-domain {
-  padding: 3rem 2.5rem; background: var(--offwhite); border-top: 3px solid var(--navy);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-.biz-domain:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(38,34,98,0.08); }
-.biz-domain-icon { font-size: 2rem; color: var(--red); margin-bottom: 1.5rem; opacity: 0.7; }
-.biz-domain h3 { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 1rem; line-height: 1.5; }
-.biz-domain p { font-size: 0.875rem; color: #666; line-height: 2; font-weight: 300; }
-
-.biz-activities { background: var(--offwhite); padding: 3rem; margin-bottom: 2rem; }
-.biz-act-title { font-family: 'Montserrat', sans-serif; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.45em; color: var(--red); margin-bottom: 2rem; }
-.biz-act-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; }
-.biz-act-item h4 { font-size: 0.88rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; }
-.biz-act-item p { font-size: 0.82rem; color: #666; line-height: 1.9; font-weight: 300; }
-
-.biz-future {
-  padding: 2rem 2.5rem; border: 1px solid var(--border); border-left: 4px solid var(--red);
-}
-.biz-future-label { font-family: 'Montserrat', sans-serif; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.3em; color: var(--red); margin-bottom: 0.75rem; }
-.biz-future p { font-size: 0.875rem; color: #555; line-height: 2; }
-
-/* ============================================================
-   NAME SECTION — updates
-   ============================================================ */
-.name-meanings { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem; }
-.name-meaning { padding: 1.5rem 0; border-top: 1px solid var(--border); }
-.name-meaning-tag { font-family: 'Montserrat', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em; color: var(--red); margin-bottom: 0.75rem; }
-.name-meaning p { font-size: 0.875rem; color: #555; line-height: 2; font-weight: 300; }
-.name-closing { font-size: 0.875rem; color: #555; line-height: 2.1; margin-bottom: 1.5rem; font-weight: 300; }
-
-/* ============================================================
-   BRAND STATEMENT — updates
-   ============================================================ */
-.bs-body p { font-size: 0.95rem; color: #555; line-height: 2.3; font-weight: 300; margin-bottom: 1.5rem; }
-.bs-closing { font-weight: 700 !important; color: var(--navy) !important; font-style: italic; }
-
-/* ============================================================
-   CONTACT — menu section
-   ============================================================ */
-.contact-menu { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 3.5rem; }
-.contact-menu-item { padding: 1.5rem 0; border-top: 2px solid var(--navy); }
-.contact-menu-title { font-size: 0.82rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; }
-.contact-menu-item p { font-size: 0.8rem; color: var(--muted); line-height: 1.8; font-weight: 300; }
+.footer-bottom p { font-size: 0.74rem; color: rgba(255,255,255,0.22); }
 
 /* ============================================================
    RESPONSIVE
@@ -546,25 +500,22 @@ footer { background: var(--dark); padding: 5rem 0 2.5rem; }
   }
   .nav-links.open { display: flex; }
   .hamburger { display: flex; }
-  .mani-item { grid-template-columns: 60px 1fr; gap: 1.5rem; }
   .company-table th { width: 120px; }
   .form-row { grid-template-columns: 1fr; }
   .footer-top { flex-direction: column; }
   .footer-bottom { flex-direction: column; }
-  .biz-note { flex-direction: column; gap: 0.75rem; }
+  .value-item { grid-template-columns: 60px 1fr; gap: 1.5rem; }
 }
 
 @media (max-width: 480px) {
   .container { padding: 0 1.5rem; }
-  .brand-statement, .name-section, .greeting-section, .values-section,
-  .business-section, .company-section, .contact-section { padding: 6rem 0; }
-  .manifesto-section { padding: 6rem 0; }
+  .brand-statement, .name-section, .greeting-section, .vision-section,
+  .values-section, .business-section, .company-section, .contact-section { padding: 6rem 0; }
   #teaser { padding: 6rem 0; }
   .hero-actions { flex-direction: column; align-items: flex-start; }
   .hero-actions .btn-red, .hero-actions .btn-ghost { width: 100%; text-align: center; }
   .bs-quote { font-size: 1.75rem; padding-left: 1.25rem; }
   .bs-body { padding-left: 1.25rem; }
-  .mani-item { grid-template-columns: 1fr; gap: 0.5rem; }
   .cd-block { min-width: 70px; }
   .cd-num { font-size: 2.8rem; }
   .cd-colon { font-size: 2rem; }
@@ -572,4 +523,5 @@ footer { background: var(--dark); padding: 5rem 0 2.5rem; }
   .company-table tbody, .company-table tr { display: block; }
   .company-table th, .company-table td { display: block; width: 100%; padding: 0.75rem 1rem; }
   .company-table th { padding-bottom: 0.25rem; border-bottom: none; }
+  .vision-os-title { padding-left: 1rem !important; }
 }
