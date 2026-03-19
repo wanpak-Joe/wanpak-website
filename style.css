@@ -468,8 +468,12 @@ footer { background: var(--dark); padding: 5rem 0 2.5rem; }
   gap: 3rem; flex-wrap: wrap; padding-bottom: 3.5rem;
   border-bottom: 1px solid rgba(255,255,255,0.07);
 }
-.footer-logo { height: 22px; width: auto; margin-bottom: 1rem; }
-.footer-logo-fallback { display: block; margin-bottom: 1rem; font-size: 1.25rem; }
+.footer-logo-row {
+  display: flex; align-items: center; gap: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+.footer-logo-text { height: 32px; width: auto; }
+.footer-logo-icon { height: 40px; width: auto; opacity: 0.9; }
 .footer-tagline { font-size: 0.85rem; color: rgba(255,255,255,0.4); margin-bottom: 1.2rem; }
 .footer-address { font-size: 0.78rem; color: rgba(255,255,255,0.28); margin-bottom: 0.4rem; }
 .footer-mail { font-size: 0.78rem; color: rgba(255,255,255,0.35); transition: color 0.2s; }
