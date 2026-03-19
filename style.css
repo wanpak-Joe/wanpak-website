@@ -35,6 +35,9 @@ body {
 /* ===== CONTAINER ===== */
 .container { max-width: 1080px; margin: 0 auto; padding: 0 2.5rem; }
 
+/* ===== SECTION DIVIDER ===== */
+.section-divider { width: 100%; height: auto; display: block; }
+
 /* ===== SECTION LABELS ===== */
 .section-label {
   font-family: 'Montserrat', sans-serif;
