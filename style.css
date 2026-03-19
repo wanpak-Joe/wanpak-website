@@ -460,9 +460,9 @@ body {
 .contact-menu-item p { font-size: 0.88rem; color: var(--sub); line-height: 1.9; }
 
 /* ============================================================
-   FOOTER — dark (intentional: close)
+   FOOTER — navy (brand color / consistent with hero)
    ============================================================ */
-footer { background: var(--dark); padding: 5rem 0 2.5rem; }
+footer { background: var(--navy); padding: 5rem 0 2.5rem; }
 .footer-top {
   display: flex; justify-content: space-between; align-items: flex-start;
   gap: 3rem; flex-wrap: wrap; padding-bottom: 3.5rem;
