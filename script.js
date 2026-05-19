@@ -93,11 +93,37 @@ setInterval(updateCountdown, 1000);
 // ===== CONTACT FORM =====
 const form = document.querySelector('.contact-form');
 if (form) {
-  form.addEventListener('submit', () => {
+  const isEN = form.getAttribute('name') === 'contact-en';
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
     const btn = form.querySelector('.btn-submit');
-    btn.textContent = '送信中...';
+    btn.textContent = isEN ? 'Sending...' : '送信中...';
     btn.disabled = true;
     btn.style.opacity = '0.7';
+
+    try {
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form)).toString(),
+      });
+      if (response.ok) {
+        form.innerHTML = isEN
+          ? '<div class="form-success"><span class="form-success-icon">✓</span><p>Thank you for your message.<br>We will get back to you shortly.</p></div>'
+          : '<div class="form-success"><span class="form-success-icon">✓</span><p>お問い合わせを受け付けました。<br>担当者よりご連絡いたします。</p></div>';
+      } else {
+        throw new Error('server_' + response.status);
+      }
+    } catch (err) {
+      console.error('Contact form error:', err);
+      btn.textContent = isEN ? 'Send' : '送信する';
+      btn.disabled = false;
+      btn.style.opacity = '1';
+      alert(isEN
+        ? 'An error occurred. Please try again later or email us directly at info@wanpak.jp.'
+        : '送信中にエラーが発生しました。時間をおいて再度お試しいただくか、info@wanpak.jp までご連絡ください。');
+    }
   });
 }
 
