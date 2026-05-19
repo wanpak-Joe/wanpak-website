@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="40" viewBox="0 0 1200 40">
+  <line x1="0" y1="20" x2="1080" y2="20" stroke="#d8d8d6" stroke-width="1"/>
+  <polygon points="1090,2 1110,20 1090,38 1200,38 1200,2" fill="#ff3131"/>
+  <text x="1095" y="24" font-family="Montserrat,sans-serif" font-size="10"
+        font-weight="700" letter-spacing="3" fill="white">01</text>
+</svg>

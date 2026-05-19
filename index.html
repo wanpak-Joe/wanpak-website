@@ -9,11 +9,24 @@
   <meta property="og:description" content="「ちょうどいい」は、もういらない。wanpakは、マスカスタマイゼーションで個人に最適化された道具を届ける会社です。">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://wanpak.jp">
+  <meta property="og:image" content="https://wanpak.jp/hero_craftsman.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://wanpak.jp/hero_craftsman.png">
   <link rel="icon" type="image/png" href="logo-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YX34YKVZKK"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YX34YKVZKK');
+  </script>
 </head>
 <body>
 
@@ -30,9 +43,15 @@
         <li><a href="#values">私たちの価値観</a></li>
         <li><a href="#business">事業内容</a></li>
         <li><a href="#teaser">PRODUCT</a></li>
+        <li><a href="#news">ニュース</a></li>
         <li><a href="#company">会社概要</a></li>
         <li><a href="#contact" class="nav-cta">お問い合わせ</a></li>
       </ul>
+      <div class="lang-switch">
+        <span class="lang-btn lang-active">JP</span>
+        <span class="lang-sep">|</span>
+        <a href="en/index.html" class="lang-btn">EN</a>
+      </div>
       <button class="hamburger" id="hamburger" aria-label="メニューを開く">
         <span></span><span></span><span></span>
       </button>
@@ -41,8 +60,21 @@
 
   <!-- ===== HERO ===== -->
   <section id="hero">
+    <!-- Split image background -->
+    <div class="hero-split">
+      <div class="hero-panel hero-panel--left">
+        <img src="hero_craftsman.png" alt="職人技" class="hero-panel-img">
+        <div class="hero-panel-overlay"></div>
+        <span class="hero-panel-label">TRADITION</span>
+      </div>
+      <div class="hero-divider-line"></div>
+      <div class="hero-panel hero-panel--right">
+        <img src="hero_3dprint.png" alt="デジタル技術" class="hero-panel-img">
+        <div class="hero-panel-overlay"></div>
+        <span class="hero-panel-label">TECHNOLOGY</span>
+      </div>
+    </div>
     <div class="hero-grid-bg"></div>
-    <div class="hero-glow"></div>
     <div class="hero-content">
       <p class="hero-eyebrow">MASS CUSTOMIZATION PLATFORM</p>
       <h1 class="hero-title">
@@ -343,7 +375,7 @@
       <h2 class="teaser-title">1st プロダクト、準備中。</h2>
       <p class="teaser-desc">
         wanpakが手がける最初のプロダクトを、準備しています。<br>
-        詳細は2026年6月に公開予定。続報をお待ちください。
+        詳細は2026年6月の設立とともに公開予定。続報をお待ちください。
       </p>
       <div class="cd-wrap">
         <div class="cd-label-top">PUBLIC IN</div>
@@ -368,11 +400,72 @@
             <span class="cd-unit">SECS</span>
           </div>
         </div>
-        <div class="cd-date">2026.06.01</div>
+        <div class="cd-date">2026.06.30</div>
       </div>
-      <a href="#contact" class="btn-teaser">続報を受け取る →</a>
+      <button id="btn-subscribe" class="btn-teaser" type="button"
+              data-open-text="続報を受け取る →"
+              data-close-text="登録フォームを閉じる ×"
+              data-error-text="メールアドレスを入力してください">続報を受け取る →</button>
+
+      <!-- ===== INLINE SUBSCRIBE FORM ===== -->
+      <div id="subscribe-form-wrap" class="subscribe-form-wrap" aria-hidden="true">
+        <form id="subscribe-form" class="subscribe-form" novalidate>
+          <div class="sf-group">
+            <label for="sf-email">メールアドレス <span class="sf-req">*</span></label>
+            <input type="email" id="sf-email" name="email" required
+                   placeholder="example@email.com" autocomplete="email">
+            <span class="sf-error" id="sf-email-error">メールアドレスを入力してください</span>
+          </div>
+          <div class="sf-row">
+            <div class="sf-group">
+              <label for="sf-name">お名前 <span class="sf-opt">任意</span></label>
+              <input type="text" id="sf-name" name="name" placeholder="山田 太郎" autocomplete="name">
+            </div>
+            <div class="sf-group">
+              <label for="sf-affil">ご所属・お立場など <span class="sf-opt">任意</span></label>
+              <input type="text" id="sf-affil" name="affiliation"
+                     placeholder="例：競技者、業界関係者、メディア等">
+            </div>
+          </div>
+          <p class="sf-note">いただいたメールアドレスは続報のご連絡にのみ使用します。</p>
+          <div class="sf-actions">
+            <button type="submit" class="btn-sf-submit">登録する</button>
+            <button type="button" id="btn-subscribe-close" class="btn-sf-cancel">キャンセル</button>
+          </div>
+        </form>
+        <div id="subscribe-success" class="subscribe-success" hidden>
+          <p>ご登録ありがとうございます。<br>続報をお送りします。</p>
+        </div>
+      </div>
+
     </div>
   </section>
+
+  <!-- ===== NEWS ===== -->
+  <section id="news" class="news-section">
+    <div class="container">
+      <div class="section-label">NEWS</div>
+      <h2 class="section-title">ニュース</h2>
+
+      <div class="news-list">
+        <!-- ニュース記事テンプレート（追加時はこの形式でコピーして使用）
+        <button class="news-item reveal" data-modal="news-XX">
+          <time class="news-date">2026.06.30</time>
+          <span class="news-tag">プレスリリース</span>
+          <h3 class="news-title">タイトルをここに記入</h3>
+          <span class="news-arrow">→</span>
+        </button>
+        -->
+        <button class="news-item reveal" data-modal="news-01">
+          <time class="news-date">2026.06.01</time>
+          <span class="news-tag">お知らせ</span>
+          <h3 class="news-title">公式ウェブサイトを公開しました</h3>
+          <span class="news-arrow">→</span>
+        </button>
+      </div>
+    </div>
+  </section>
+  <img src="divider.svg" class="section-divider" aria-hidden="true">
 
   <!-- ===== 会社概要 ===== -->
   <section id="company" class="company-section">
@@ -392,11 +485,11 @@
             </tr>
             <tr>
               <th>設立予定</th>
-              <td>2026年6月</td>
+              <td>2026年6月30日</td>
             </tr>
             <tr>
               <th>所在地</th>
-              <td>東京都大田区（詳細は設立後に公開）</td>
+              <td>東京都大田区南六郷3-10-16</td>
             </tr>
             <tr>
               <th>事業内容</th>
@@ -417,7 +510,7 @@
             </tr>
             <tr>
               <th>連絡先</th>
-              <td><a href="mailto:wdi.jo.arai@gmail.com">wdi.jo.arai@gmail.com</a></td>
+              <td><a href="mailto:info@wanpak.jp">info@wanpak.jp</a></td>
             </tr>
             <tr>
               <th>営業時間</th>
@@ -494,6 +587,28 @@
     </div>
   </section>
 
+  <!-- ===== NEWS MODAL ===== -->
+  <div id="news-modal" class="news-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="news-modal-overlay"></div>
+    <div class="news-modal-inner">
+      <button class="news-modal-close" aria-label="閉じる">×</button>
+      <div class="news-modal-content"></div>
+    </div>
+  </div>
+
+  <!-- ===== NEWS ARTICLE TEMPLATES ===== -->
+  <template id="news-01">
+    <div class="nmt-tag">お知らせ</div>
+    <time class="nmt-date">2026年6月1日</time>
+    <h2 class="nmt-title">公式ウェブサイトを公開しました</h2>
+    <div class="nmt-body">
+      <p>wanpak（設立準備中）は、本日より公式ウェブサイト <strong>wanpak.jp</strong> を公開しました。</p>
+      <p>「規格品のない世界をつくる」をミッションに掲げるwanpakは、すべての人のための道具をマスカスタマイゼーションで実現する会社です。職人の技とデジタル技術を融合させ、身体・目的・環境に完全に最適化された道具を、必要な人のもとへ届けます。</p>
+      <p>2026年6月30日の会社設立に向け、現在第1プロダクトの開発を進めています。詳細は設立とともに公開予定です。</p>
+      <p>続報のご登録は、本ページの「続報を受け取る」よりお申し込みください。引き続きどうぞよろしくお願いいたします。</p>
+    </div>
+  </template>
+
   <!-- ===== FOOTER ===== -->
   <footer>
     <div class="container">
@@ -504,8 +619,8 @@
             <img src="logo-icon-white.png" alt="wanpak icon" class="footer-logo-icon">
           </div>
           <p class="footer-tagline">道具を、その人のために、生み出す。</p>
-          <p class="footer-address">東京都大田区（設立準備中）</p>
-          <a href="mailto:wdi.jo.arai@gmail.com" class="footer-mail">wdi.jo.arai@gmail.com</a>
+          <p class="footer-address">東京都大田区南六郷3-10-16</p>
+          <a href="mailto:info@wanpak.jp" class="footer-mail">info@wanpak.jp</a>
         </div>
         <nav class="footer-nav">
           <a href="#brand">ブランド</a>
@@ -517,8 +632,8 @@
         </nav>
       </div>
       <div class="footer-bottom">
-        <p>© 2026 wanpak. All Rights Reserved.</p>
-        <p>設立準備中 — 2026年6月設立予定</p>
+        <p>© 2026 wanpak. All Rights Reserved. <a href="privacy.html" style="color:rgba(255,255,255,0.4);margin-left:1.5rem;font-size:0.8rem;">プライバシーポリシー</a></p>
+        <p>設立準備中 — 2026年6月30日設立予定</p>
       </div>
     </div>
   </footer>

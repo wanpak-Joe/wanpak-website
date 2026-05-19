@@ -63,8 +63,8 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 // ===== COUNTDOWN TIMER =====
-// Target: 2026年6月1日 00:00:00 JST
-const TARGET = new Date('2026-06-01T00:00:00+09:00');
+// Target: 2026年6月30日 00:00:00 JST（株式会社wanpak 設立日）
+const TARGET = new Date('2026-06-30T00:00:00+09:00');
 
 function pad(n) { return String(n).padStart(2, '0'); }
 
@@ -98,5 +98,122 @@ if (form) {
     btn.textContent = '送信中...';
     btn.disabled = true;
     btn.style.opacity = '0.7';
+  });
+}
+
+// ===== NEWS MODAL =====
+const newsModal        = document.getElementById('news-modal');
+const newsModalContent = newsModal ? newsModal.querySelector('.news-modal-content') : null;
+const newsModalClose   = newsModal ? newsModal.querySelector('.news-modal-close') : null;
+const newsModalOverlay = newsModal ? newsModal.querySelector('.news-modal-overlay') : null;
+
+function openNewsModal(templateId) {
+  const tmpl = document.getElementById(templateId);
+  if (!tmpl || !newsModal) return;
+  newsModalContent.innerHTML = '';
+  newsModalContent.appendChild(tmpl.content.cloneNode(true));
+  newsModal.classList.add('open');
+  newsModal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+  newsModalClose && newsModalClose.focus();
+}
+
+function closeNewsModal() {
+  if (!newsModal) return;
+  newsModal.classList.remove('open');
+  newsModal.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+
+document.querySelectorAll('.news-item[data-modal]').forEach(btn => {
+  btn.addEventListener('click', () => openNewsModal(btn.dataset.modal));
+});
+
+if (newsModalClose)   newsModalClose.addEventListener('click', closeNewsModal);
+if (newsModalOverlay) newsModalOverlay.addEventListener('click', closeNewsModal);
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && newsModal && newsModal.classList.contains('open')) closeNewsModal();
+});
+
+// ===== SUBSCRIBE INLINE FORM =====
+// Google Apps Script Web App URL（デプロイ後に差し替え）
+const SUBSCRIBE_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxcvXG-CZPPpV-YaiNoqzYVkcSDi0yORXwbmN5ahqaYbd4Te3rUxnguury0d3jfowhLiA/exec';
+
+const btnSubscribe      = document.getElementById('btn-subscribe');
+const subscribeWrap     = document.getElementById('subscribe-form-wrap');
+const subscribeForm     = document.getElementById('subscribe-form');
+const btnClose          = document.getElementById('btn-subscribe-close');
+const subscribeSuccess  = document.getElementById('subscribe-success');
+const sfEmailInput      = document.getElementById('sf-email');
+const sfEmailError      = document.getElementById('sf-email-error');
+
+const openText  = btnSubscribe ? (btnSubscribe.dataset.openText  || btnSubscribe.textContent) : '';
+const closeText = btnSubscribe ? (btnSubscribe.dataset.closeText || 'Close ×') : '';
+const errorText = btnSubscribe ? (btnSubscribe.dataset.errorText || '') : '';
+
+function openSubscribeForm() {
+  subscribeWrap.classList.add('open');
+  subscribeWrap.removeAttribute('aria-hidden');
+  btnSubscribe.textContent = closeText;
+  setTimeout(() => sfEmailInput && sfEmailInput.focus(), 350);
+}
+
+function closeSubscribeForm() {
+  subscribeWrap.classList.remove('open');
+  subscribeWrap.setAttribute('aria-hidden', 'true');
+  btnSubscribe.textContent = openText;
+}
+
+if (btnSubscribe) {
+  btnSubscribe.addEventListener('click', () => {
+    subscribeWrap.classList.contains('open') ? closeSubscribeForm() : openSubscribeForm();
+  });
+}
+
+if (btnClose) {
+  btnClose.addEventListener('click', closeSubscribeForm);
+}
+
+if (subscribeForm) {
+  subscribeForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Validation
+    const email = sfEmailInput.value.trim();
+    const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    if (sfEmailError && errorText) sfEmailError.textContent = errorText;
+    sfEmailInput.classList.toggle('is-error', !emailOk);
+    sfEmailError.classList.toggle('visible', !emailOk);
+    if (!emailOk) { sfEmailInput.focus(); return; }
+
+    const submitBtn = subscribeForm.querySelector('.btn-sf-submit');
+    submitBtn.textContent = '送信中...';
+    submitBtn.disabled = true;
+
+    const payload = {
+      email,
+      name:        document.getElementById('sf-name').value.trim(),
+      affiliation: document.getElementById('sf-affil').value.trim(),
+      timestamp:   new Date().toISOString(),
+      source:      'wanpak.jp/teaser'
+    };
+
+    try {
+      await fetch(SUBSCRIBE_ENDPOINT, {
+        method: 'POST',
+        mode: 'no-cors',                        // Apps Script は CORS 非対応のため no-cors
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      // no-cors では response は常に opaque → 成功と見なして完了表示
+      subscribeForm.hidden = true;
+      subscribeSuccess.hidden = false;
+    } catch (err) {
+      console.error('Subscribe error:', err);
+      submitBtn.textContent = '送信する';
+      submitBtn.disabled = false;
+      alert('送信中にエラーが発生しました。時間をおいて再度お試しください。');
+    }
   });
 }
