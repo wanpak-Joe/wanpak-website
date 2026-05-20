@@ -30,6 +30,8 @@ body {
   color: var(--ink);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  overflow-wrap: break-word;
+  line-break: strict;
 }
 
 /* ===== CONTAINER ===== */
@@ -794,6 +796,11 @@ footer { background: var(--navy); padding: 5rem 0 2.5rem; }
   .hero-actions .btn-red, .hero-actions .btn-ghost { width: 100%; text-align: center; }
   .bs-quote { font-size: 1.75rem; padding-left: 1.25rem; }
   .bs-body { padding-left: 1.25rem; }
+  .mv-headline { font-size: 1rem; }
+  .mv-body { font-size: 0.92rem; }
+  .manifesto-close { font-size: 1.05rem !important; }
+  .value-body h3 { font-size: 1rem; }
+  .section-desc { font-size: 0.95rem; }
   .cd-block { min-width: 70px; }
   .cd-num { font-size: 2.8rem; }
   .cd-colon { font-size: 2rem; }
