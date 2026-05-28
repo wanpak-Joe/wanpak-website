@@ -151,7 +151,17 @@ function closeNewsModal() {
   document.body.style.overflow = '';
 }
 
+// 未来日付のニュースを非表示（公開日になったら自動表示）
 document.querySelectorAll('.news-item[data-modal]').forEach(btn => {
+  const timeEl = btn.querySelector('time.news-date');
+  if (timeEl) {
+    const dateStr = timeEl.textContent.trim().replace(/\./g, '-');
+    const itemDate = new Date(dateStr + 'T00:00:00+09:00');
+    if (itemDate > new Date()) {
+      btn.style.display = 'none';
+      return;
+    }
+  }
   btn.addEventListener('click', () => openNewsModal(btn.dataset.modal));
 });
 
