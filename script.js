@@ -63,8 +63,8 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 // ===== COUNTDOWN TIMER =====
-// Target: 2026年6月30日 00:00:00 JST（株式会社wanpak 設立日）
-const TARGET = new Date('2026-06-30T00:00:00+09:00');
+// Target: 2026年6月30日 12:00:00 JST（株式会社wanpak 設立日）
+const TARGET = new Date('2026-06-30T12:00:00+09:00');
 
 function pad(n) { return String(n).padStart(2, '0'); }
 
