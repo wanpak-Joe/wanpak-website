@@ -128,14 +128,21 @@
       align-items: center; justify-content: center;
       padding: 80px 60px; text-align: center;
     }
-    .p-duality-panel--left { background: var(--navy); }
+    .p-duality-panel--left {
+      background-image: url('product_craftsman_measuring.png');
+      background-size: cover; background-position: center;
+    }
+    .p-duality-panel--left::before {
+      content: ''; position: absolute; inset: 0;
+      background: rgba(38,34,98,0.72);
+    }
     .p-duality-panel--right {
-      background-image: url('product_carbon_texture.png');
+      background-image: url('product_3dscan_foot.png');
       background-size: cover; background-position: center;
     }
     .p-duality-panel--right::before {
       content: ''; position: absolute; inset: 0;
-      background: rgba(38,34,98,0.75);
+      background: rgba(38,34,98,0.72);
     }
     .p-duality-panel > * { position: relative; z-index: 1; }
     .p-duality-en {
