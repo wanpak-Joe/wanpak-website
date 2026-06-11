@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>電子公告 | wanpak</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/png" href="logo-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YX34YKVZKK"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YX34YKVZKK');
+  </script>
+  <style>
+    .koukoku-wrap {
+      max-width: 720px; margin: 0 auto;
+      padding: 8rem 2rem 6rem;
+    }
+    .koukoku-wrap h1 {
+      font-size: 1.8rem; font-weight: 900;
+      color: var(--navy); margin-bottom: 0.5rem;
+    }
+    .koukoku-updated {
+      font-size: 0.82rem; color: var(--muted);
+      margin-bottom: 3rem;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .koukoku-lead {
+      font-size: 0.95rem; color: var(--ink);
+      line-height: 2; margin-bottom: 3rem;
+    }
+    .koukoku-section h2 {
+      font-size: 1rem; font-weight: 700;
+      color: var(--navy); margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--border);
+    }
+    /* 公告掲載枠 */
+    .notice-board {
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--red);
+      border-radius: 6px;
+      padding: 2rem 1.75rem;
+      background: #fcfcfd;
+    }
+    .notice-empty {
+      font-size: 0.92rem; color: var(--muted);
+      line-height: 1.9; margin: 0;
+    }
+    /* 将来：個別公告の表示用（掲載時に .notice-item を複製して使う） */
+    .notice-item { margin-bottom: 2rem; }
+    .notice-item:last-child { margin-bottom: 0; }
+    .notice-item .notice-title {
+      font-size: 1rem; font-weight: 700;
+      color: var(--navy); margin-bottom: 0.4rem;
+    }
+    .notice-item .notice-date {
+      font-size: 0.8rem; color: var(--muted);
+      font-family: 'Montserrat', sans-serif; margin-bottom: 1rem;
+    }
+    .notice-item .notice-body {
+      font-size: 0.9rem; color: var(--ink); line-height: 2;
+      white-space: pre-line;
+    }
+    .koukoku-back {
+      display: inline-block; margin-top: 3rem;
+      font-size: 0.85rem; color: var(--navy);
+      font-weight: 700; letter-spacing: 0.04em;
+    }
+    .koukoku-back:hover { color: var(--red); }
+  </style>
+</head>
+<body>
+
+  <nav id="navbar" class="scrolled">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <img src="logo-white.png" alt="wanpak" class="logo-img"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='inline'">
+        <span class="logo-fallback">wanpak<span class="logo-dot"></span></span>
+      </a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="koukoku-wrap">
+
+      <h1>電子公告</h1>
+      <p class="koukoku-updated">最終更新日：2026年6月11日</p>
+
+      <p class="koukoku-lead">
+        合同会社wanpak（以下「当社」）の公告は、本ページにおいて電子公告により行います。
+      </p>
+
+      <div class="koukoku-section">
+        <h2>掲載中の公告</h2>
+
+        <div class="notice-board">
+          <!-- 平常時：掲載なし -->
+          <p class="notice-empty">現在、掲載中の公告はありません。</p>
+
+          <!-- 公告掲載時は上の <p class="notice-empty"> を削除し、以下の雛形を複製して記入する
+          <div class="notice-item">
+            <p class="notice-title">（件名：例）資本金の額の減少公告</p>
+            <p class="notice-date">掲載日：YYYY年M月D日</p>
+            <p class="notice-body">（公告本文をここに記載）</p>
+          </div>
+          -->
+        </div>
+      </div>
+
+      <a href="index.html" class="koukoku-back">← wanpak トップページへ戻る</a>
+
+    </div>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo-row">
+            <img src="logo-white.png" alt="wanpak" class="footer-logo-text">
+            <img src="logo-icon-white.png" alt="wanpak icon" class="footer-logo-icon">
+          </div>
+          <p class="footer-tagline">道具を、その人のために、生み出す。</p>
+          <p class="footer-address">東京都大田区南六郷3-10-16</p>
+          <a href="mailto:info@wanpak.jp" class="footer-mail">info@wanpak.jp</a>
+        </div>
+        <nav class="footer-nav">
+          <a href="index.html">トップ</a>
+          <a href="privacy.html">プライバシーポリシー</a>
+          <a href="koukoku.html">電子公告</a>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 合同会社wanpak（wanpak LLC）All Rights Reserved. <a href="privacy.html" style="color:rgba(255,255,255,0.4);margin-left:1.5rem;font-size:0.8rem;">プライバシーポリシー</a></p>
+        <p>設立準備中 — 2026年6月30日設立予定</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 80);
+    }, { passive: true });
+  </script>
+
+</body>
+</html>
