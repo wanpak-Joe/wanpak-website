@@ -7,3 +7,9 @@
   [headers.values]
     X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
+
+# 登記用の電子公告URL（wanpak.jp/koukoku）を確実に表示する（拡張子なしURLの明示リライト）
+[[redirects]]
+  from = "/koukoku"
+  to = "/koukoku.html"
+  status = 200
