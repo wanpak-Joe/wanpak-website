@@ -63,19 +63,55 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 // ===== COUNTDOWN TIMER =====
-// Target: 2026年6月30日 12:00:00 JST（合同会社wanpak 設立日）
-const TARGET = new Date('2026-06-30T12:00:00+09:00');
+// Target: 2026年7月19日 10:00:00 JST（1stプロダクト公開日 / CEO確定 2026-06-18）
+const TARGET = new Date('2026-07-19T10:00:00+09:00');
 
 function pad(n) { return String(n).padStart(2, '0'); }
+
+let revealed = false;
+
+function reveal() {
+  if (revealed) return;
+  revealed = true;
+
+  // カウントダウンブロックを非表示
+  const cdWrap = document.querySelector('.cd-wrap');
+  if (cdWrap) cdWrap.style.display = 'none';
+
+  // teaserセクション背景を濃紺（#262262）に切り替え
+  const teaser = document.getElementById('teaser');
+  if (teaser) teaser.style.background = '#262262';
+
+  // タイトル（decisions.md 2026-06-18 確定コピー）
+  const title = document.querySelector('.teaser-title');
+  if (title) title.textContent = '1st プロダクト公開';
+
+  // 紹介文（確定コピー）
+  const desc = document.querySelector('.teaser-desc');
+  if (desc) {
+    desc.innerHTML = 'あなたの為に設計された勝つ為の一足<br><span style="font-size:0.9em;opacity:0.75">競輪・トラック競技のための、フルカスタムシューズ。あなたの足型を起点に、"調整"ではなく"設計"する一足。</span>';
+  }
+
+  // ボタンをプロダクトページへのリンクに差し替え
+  const btn = document.getElementById('btn-subscribe');
+  if (btn) {
+    const link = document.createElement('a');
+    link.href = 'product.html';
+    link.className = btn.className;
+    link.style.cssText = 'background:#ff3131;border-color:#ff3131;color:#fff;text-decoration:none;display:inline-block;';
+    link.textContent = 'プロダクトページへ →';
+    btn.parentNode.replaceChild(link, btn);
+  }
+
+  // 続報フォームも非表示
+  const formWrap = document.getElementById('subscribe-form-wrap');
+  if (formWrap) formWrap.style.display = 'none';
+}
 
 function updateCountdown() {
   const diff = TARGET - new Date();
   if (diff <= 0) {
-    ['cd-days','cd-hours','cd-mins','cd-secs'].forEach(id => {
-      document.getElementById(id).textContent = '00';
-    });
-    const title = document.querySelector('.teaser-title');
-    if (title) title.textContent = '第1プロダクト、公開中。';
+    reveal();
     return;
   }
   const days  = Math.floor(diff / 86400000);
