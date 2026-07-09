@@ -74,6 +74,8 @@ function reveal() {
   if (revealed) return;
   revealed = true;
 
+  const isEN = document.documentElement.lang === 'en';
+
   // カウントダウンブロックを非表示
   const cdWrap = document.querySelector('.cd-wrap');
   if (cdWrap) cdWrap.style.display = 'none';
@@ -84,12 +86,14 @@ function reveal() {
 
   // タイトル（decisions.md 2026-06-18 確定コピー）
   const title = document.querySelector('.teaser-title');
-  if (title) title.textContent = '1st プロダクト公開';
+  if (title) title.textContent = isEN ? '1st Product Launch' : '1st プロダクト公開';
 
   // 紹介文（確定コピー）
   const desc = document.querySelector('.teaser-desc');
   if (desc) {
-    desc.innerHTML = 'あなたの為に設計された勝つ為の一足<br><span style="font-size:0.9em;opacity:0.75">競輪・トラック競技のための、フルカスタムシューズ。あなたの足型を起点に、"調整"ではなく"設計"する一足。</span>';
+    desc.innerHTML = isEN
+      ? 'Designed for you. Built to win.<br><span style="font-size:0.9em;opacity:0.75">A fully custom carbon shoe for track cycling. Engineered from your foot scan — not adjusted, but designed for you.</span>'
+      : 'あなたの為に設計された勝つ為の一足<br><span style="font-size:0.9em;opacity:0.75">競輪・トラック競技のための、フルカスタムシューズ。あなたの足型を起点に、"調整"ではなく"設計"する一足。</span>';
   }
 
   // ボタンをプロダクトページへのリンクに差し替え
@@ -99,7 +103,7 @@ function reveal() {
     link.href = 'product.html';
     link.className = btn.className;
     link.style.cssText = 'background:#ff3131;border-color:#ff3131;color:#fff;text-decoration:none;display:inline-block;';
-    link.textContent = 'プロダクトページへ →';
+    link.textContent = isEN ? 'View Product Page →' : 'プロダクトページへ →';
     btn.parentNode.replaceChild(link, btn);
   }
 
