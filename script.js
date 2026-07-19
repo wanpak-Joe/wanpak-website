@@ -62,9 +62,17 @@ window.addEventListener('scroll', () => {
   });
 }, { passive: true });
 
+// ===== 公開日時：単一情報源（Single Source of Truth）=====
+// 公開日時はこの2定数のみで定義する。カウントダウン・ニュース自動表示など
+// 時刻依存ロジックは全てここから導出し、時刻を二重にハードコードしない。
+// CEOが公開日/時刻を変えるときは、この2行だけを変更すれば全ロジックに伝播する。
+// （2026-07-19事故の再発防止：旧実装は TARGET と ニュース閾値 に 10:00/12:00 を
+//   別々にハードコードし2時間の非表示ズレが発生した。QG-WEB G6 対応）
+const LAUNCH_DATE = '2026-07-19';        // 1stプロダクト公開日（CEO確定 2026-06-18）
+const LAUNCH_TIME = '10:00:00';          // 公開時刻 JST
+
 // ===== COUNTDOWN TIMER =====
-// Target: 2026年7月19日 10:00:00 JST（1stプロダクト公開日 / CEO確定 2026-06-18）
-const TARGET = new Date('2026-07-19T10:00:00+09:00');
+const TARGET = new Date(`${LAUNCH_DATE}T${LAUNCH_TIME}+09:00`);
 
 function pad(n) { return String(n).padStart(2, '0'); }
 
@@ -196,8 +204,9 @@ document.querySelectorAll('.news-item[data-modal]').forEach(btn => {
   const timeEl = btn.querySelector('time.news-date');
   if (timeEl) {
     const dateStr = timeEl.textContent.trim().replace(/\./g, '-');
-    // 公開時刻はカウントダウン(TARGET)と一致させる: 10:00 JST（旧12:00だと10-12時に告知だけ非表示になる不整合が出る）
-    const itemDate = new Date(dateStr + 'T10:00:00+09:00');
+    // 公開時刻は単一情報源 LAUNCH_TIME から導出（カウントダウンTARGETと必ず一致）。
+    // 時刻をここに直接ハードコードしない（QG-WEB G6 / 2026-07-19事故の恒久対策）。
+    const itemDate = new Date(`${dateStr}T${LAUNCH_TIME}+09:00`);
     if (itemDate > new Date()) {
       btn.style.display = 'none';
       return;
