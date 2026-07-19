@@ -68,14 +68,54 @@ const TARGET = new Date('2026-07-19T10:00:00+09:00');
 
 function pad(n) { return String(n).padStart(2, '0'); }
 
+let revealed = false;
+
+function reveal() {
+  if (revealed) return;
+  revealed = true;
+
+  const isEN = document.documentElement.lang === 'en';
+
+  // カウントダウンブロックを非表示
+  const cdWrap = document.querySelector('.cd-wrap');
+  if (cdWrap) cdWrap.style.display = 'none';
+
+  // teaserセクション背景を濃紺（#262262）に切り替え
+  const teaser = document.getElementById('teaser');
+  if (teaser) teaser.style.background = '#262262';
+
+  // タイトル（decisions.md 2026-06-18 確定コピー）
+  const title = document.querySelector('.teaser-title');
+  if (title) title.textContent = isEN ? '1st Product Launch' : '1st プロダクト公開';
+
+  // 紹介文（確定コピー）
+  const desc = document.querySelector('.teaser-desc');
+  if (desc) {
+    desc.innerHTML = isEN
+      ? 'Designed for you. Built to win.<br><span style="font-size:0.9em;opacity:0.75">A fully custom carbon shoe for track cycling. Engineered from your foot scan — not adjusted, but designed for you.</span>'
+      : 'あなたの為に設計された勝つ為の一足<br><span style="font-size:0.9em;opacity:0.75">競輪・トラック競技のための、フルカスタムシューズ。あなたの足型を起点に、"調整"ではなく"設計"する一足。</span>';
+  }
+
+  // ボタンをプロダクトページへのリンクに差し替え
+  const btn = document.getElementById('btn-subscribe');
+  if (btn) {
+    const link = document.createElement('a');
+    link.href = 'product.html';
+    link.className = btn.className;
+    link.style.cssText = 'background:#ff3131;border-color:#ff3131;color:#fff;text-decoration:none;display:inline-block;';
+    link.textContent = isEN ? 'View Product Page →' : 'プロダクトページへ →';
+    btn.parentNode.replaceChild(link, btn);
+  }
+
+  // 続報フォームも非表示
+  const formWrap = document.getElementById('subscribe-form-wrap');
+  if (formWrap) formWrap.style.display = 'none';
+}
+
 function updateCountdown() {
   const diff = TARGET - new Date();
   if (diff <= 0) {
-    ['cd-days','cd-hours','cd-mins','cd-secs'].forEach(id => {
-      document.getElementById(id).textContent = '00';
-    });
-    const title = document.querySelector('.teaser-title');
-    if (title) title.textContent = '第1プロダクト、公開中。';
+    reveal();
     return;
   }
   const days  = Math.floor(diff / 86400000);
@@ -156,7 +196,8 @@ document.querySelectorAll('.news-item[data-modal]').forEach(btn => {
   const timeEl = btn.querySelector('time.news-date');
   if (timeEl) {
     const dateStr = timeEl.textContent.trim().replace(/\./g, '-');
-    const itemDate = new Date(dateStr + 'T12:00:00+09:00');
+    // 公開時刻はカウントダウン(TARGET)と一致させる: 10:00 JST（旧12:00だと10-12時に告知だけ非表示になる不整合が出る）
+    const itemDate = new Date(dateStr + 'T10:00:00+09:00');
     if (itemDate > new Date()) {
       btn.style.display = 'none';
       return;
